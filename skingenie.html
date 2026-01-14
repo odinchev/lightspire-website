@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SkinGenie - AI Skincare Companion</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;800&family=JetBrains+Mono&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+
+    <style>
+        /* Specific styles for the Zig-Zag layout */
+        .showcase-row {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 4rem;
+            max-width: 1100px;
+            margin: 4rem auto;
+            padding: 0 5%;
+            flex-wrap: wrap;
+        }
+
+        /* Alternate direction for even rows */
+        .showcase-row:nth-child(even) {
+            flex-direction: row-reverse;
+        }
+
+        .showcase-text {
+            flex: 1;
+            min-width: 300px;
+        }
+
+        .showcase-text h2 {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+            color: #d8b4fe; /* Purple accent for SkinGenie */
+        }
+
+        .showcase-img {
+            flex: 1.2;
+            min-width: 300px;
+        }
+
+        .showcase-img img {
+            width: 100%;
+            border-radius: 12px;
+            border: 1px solid rgba(255,255,255,0.1);
+            box-shadow: 0 20px 40px -10px rgba(0,0,0,0.5);
+            transition: transform 0.3s ease;
+        }
+
+        .showcase-img img:hover {
+            transform: scale(1.02);
+        }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <a href="index.html" class="brand">LIGHT<span>SPIRE</span></a>
+        <a href="index.html" class="btn btn-secondary"><i class="ri-arrow-left-line"></i> Back</a>
+    </nav>
+
+    <header class="hero">
+        <div class="tag" style="margin: 0 auto 20px; color: #d8b4fe; background: rgba(216, 180, 254, 0.1);">v1.0 • ANDROID</div>
+        <h1>SkinGenie</h1>
+        <p>Your pocket dermatologist. AI-powered skin analysis and routine tracking.</p>
+
+        <div style="margin-top: 2rem; display: flex; gap: 15px; justify-content: center;">
+            <a href="https://play.google.com/store/apps/details?id=com.lightspire.skingenie" target="_blank" class="btn btn-primary" style="background: #9333ea; box-shadow: 0 0 20px rgba(147, 51, 234, 0.4);">
+                <i class="ri-google-play-fill"></i> Get it on Google Play
+            </a>
+        </div>
+    </header>
+
+    <!-- SECTION 1: THE SCAN (Image 6) -->
+    <section class="showcase-row">
+        <div class="showcase-img">
+            <img src="assets/skin-hero.png" alt="SkinGenie Scanning Interface">
+        </div>
+        <div class="showcase-text">
+            <h2>Discover Your Skin's Story</h2>
+            <p style="color: var(--text-dim); margin-bottom: 20px;">
+                Stop guessing what your skin needs. SkinGenie uses advanced computer vision to scan your face in seconds.
+            </p>
+            <p style="color: var(--text-main);">
+                <i class="ri-check-line" style="color: #d8b4fe;"></i> Instant Camera Scan<br>
+                <i class="ri-check-line" style="color: #d8b4fe;"></i> Privacy-First Processing<br>
+                <i class="ri-check-line" style="color: #d8b4fe;"></i> Works on all skin tones
+            </p>
+        </div>
+    </section>
+
+    <!-- SECTION 2: THE RESULTS (Image 7) -->
+    <section class="showcase-row">
+        <div class="showcase-img">
+            <img src="assets/skin-results.png" alt="AI Analysis Results">
+        </div>
+        <div class="showcase-text">
+            <h2>Clinical-Grade Analysis</h2>
+            <p style="color: var(--text-dim); margin-bottom: 20px;">
+                Our AI breaks down your skin health into understandable metrics. Identify issues before they become visible problems.
+            </p>
+            <ul style="list-style: none; color: var(--text-dim);">
+                <li style="margin-bottom: 10px;"><strong style="color:white">80+ Analysis Points:</strong> From hydration levels to texture.</li>
+                <li style="margin-bottom: 10px;"><strong style="color:white">Actionable Insights:</strong> We don't just show data; we explain <em>why</em> it matters.</li>
+                <li><strong style="color:white">Score Tracking:</strong> Watch your skin score improve over time.</li>
+            </ul>
+        </div>
+    </section>
+
+    <!-- SECTION 3: THE ROUTINE (Image 1) -->
+    <section class="showcase-row">
+        <div class="showcase-img">
+            <img src="assets/skin-routine.png" alt="Routine Management">
+        </div>
+        <div class="showcase-text">
+            <h2>Build Your Routine</h2>
+            <p style="color: var(--text-dim);">
+                Consistency is key to glowing skin. Organize your products into AM and PM routines and get smart reminders so you never miss a step.
+            </p>
+        </div>
+    </section>
+
+    <!-- DONATION / FOOTER -->
+    <section class="donation-box">
+        <h3 style="margin-bottom: 10px;">Support Indie Development</h3>
+        <p style="color: var(--text-dim); margin-bottom: 20px;">
+            SkinGenie is free to use. If it helps your skincare journey, consider supporting future updates.
+        </p>
+        <!-- REPLACE LINK -->
+        <a href="#" target="_blank" class="btn btn-primary" style="background: #10b981; border:none;">
+            <i class="ri-cup-line"></i> Buy me a Coffee
+        </a>
+    </section>
+
+    <footer>
+        <p>&copy; 2026 Lightspire.gg</p>
+    </footer>
+
+</body>
+</html>
