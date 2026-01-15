@@ -349,17 +349,6 @@ export default function LightspireAI() {
                             <div className="w-2 h-2 rounded-full bg-green-500/50"></div>
                         </div>
                         <img src={mallornHero} alt="Mallorn UI" className="w-full h-auto rounded border border-white/5" />
-
-                        {/* Overlay Data */}
-                        <div className="absolute bottom-6 left-6 right-6 bg-black/80 backdrop-blur-md border border-white/10 p-3 rounded flex items-center justify-between">
-                             <div className="flex items-center gap-3">
-                                 <Activity className="text-blue-500 animate-pulse" size={16} />
-                                 <div className="text-xs font-mono text-gray-300">
-                                     HYBRID SCANNING ENGINE: <span className="text-green-400">ACTIVE</span>
-                                 </div>
-                             </div>
-                             <div className="text-xs font-mono text-gray-500">Tier 1: Direct Metal</div>
-                        </div>
                      </div>
                  </div>
               </div>
@@ -555,14 +544,16 @@ export default function LightspireAI() {
                  </div>
               </div>
 
-              {/* FOOTER CTA */}
-              <div className="mt-20 text-center">
-                 <p className="text-gray-500 text-sm mb-4">Ready to glow up?</p>
-                 <a href={LINKS.kofi} target="_blank" rel="noreferrer" className="inline-flex items-center gap-2 text-gray-300 hover:text-white transition-colors border-b border-gray-700 hover:border-white pb-1 text-sm no-underline">
-                    Support Development (Buy me a Coffee)
+              {/* DONATION BANNER (GREEN) */}
+              <div className="p-8 rounded-2xl bg-emerald-900/10 border border-emerald-500/20 text-center max-w-xl mx-auto">
+                 <h3 className="text-lg font-bold mb-2 text-emerald-400">Support Indie Development</h3>
+                 <p className="text-emerald-200/60 text-sm mb-6">
+                    SkinGenie is free to use. If it helps your skincare journey, consider supporting future updates.
+                 </p>
+                 <a href={LINKS.kofi} target="_blank" className="inline-flex items-center gap-2 bg-purple-500 hover:bg-purple-600 text-white px-6 py-3 rounded-lg font-bold transition-all shadow-lg hover:shadow-emerald-500/20 no-underline">
+                    <Coffee size={18} /> Buy me a Coffee
                  </a>
               </div>
-           </div>
         )}
 
       </main>
