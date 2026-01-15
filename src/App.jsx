@@ -558,6 +558,23 @@ export default function LightspireAI() {
               </div>
            </div>
         )}
+        {/* LIGHTBOX OVERLAY */}
+        {lightboxImg && (
+           <div
+              className="fixed inset-0 z-[100] bg-black/90 backdrop-blur-md flex items-center justify-center p-4 animate-fade-in"
+              onClick={() => setLightboxImg(null)}
+           >
+              <button className="absolute top-6 right-6 text-white/50 hover:text-white">
+                 <ArrowLeft size={32} className="rotate-180" /> {/* Close Icon */}
+              </button>
+              <img
+                 src={lightboxImg}
+                 alt="Fullscreen"
+                 className="max-w-full max-h-[90vh] rounded-2xl shadow-2xl border border-white/10"
+                 onClick={(e) => e.stopPropagation()}
+              />
+           </div>
+        )}
 
 
       </main>
