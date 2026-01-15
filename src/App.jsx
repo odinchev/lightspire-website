@@ -578,6 +578,7 @@ export default function LightspireAI() {
                    className="max-w-full max-h-[90vh] rounded-2xl shadow-2xl border border-white/10"
                    onClick={(e) => e.stopPropagation()} // Prevent closing if clicking the image itself
                 />
+            </div>
           )}
 
 
