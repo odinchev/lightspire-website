@@ -554,6 +554,7 @@ export default function LightspireAI() {
                     <Coffee size={18} /> Buy me a Coffee
                  </a>
               </div>
+           </div>
         )}
 
       </main>
