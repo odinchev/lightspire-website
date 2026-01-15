@@ -180,6 +180,7 @@ export default function LightspireAI() {
 
   // State for Mallorn Gallery
   const [mallornHero, setMallornHero] = useState("assets/theme-mallorn.png");
+  const [lightboxImg, setLightboxImg] = useState(null);
 
   useEffect(() => {
     setMounted(true);
@@ -437,24 +438,33 @@ export default function LightspireAI() {
                  </a>
               </div>
 
-              {/* SECTION 1: THE SCANNER (GALLERY UPGRADE) */}
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-16 items-center mb-32">
-                 {/* The 3-Image Cluster */}
-                 <div className="relative h-[400px] w-full flex justify-center items-center">
-                    {/* Routine (Left/Back) */}
-                    <img src="assets/skin-routine.png" alt="Routine" className="absolute left-0 top-10 w-48 rounded-[2rem] border-4 border-[#1a1a20] shadow-2xl -rotate-12 opacity-60 z-0 transform scale-90" />
+              <div className="relative h-[400px] w-full flex justify-center items-center">
+                 {/* Routine (Left/Back) */}
+                 <img
+                    src="assets/skin-routine.png"
+                    alt="Routine"
+                    onClick={() => setLightboxImg("assets/skin-routine.png")}
+                    className="absolute left-0 top-10 w-48 rounded-[2rem] border-4 border-[#1a1a20] shadow-2xl -rotate-12 opacity-60 z-0 transform scale-90 cursor-zoom-in hover:opacity-100 hover:scale-95 hover:z-20 transition-all duration-300"
+                 />
 
-                    {/* Results (Right/Back) */}
-                    <img src="assets/skin-results.png" alt="Results" className="absolute right-0 top-10 w-48 rounded-[2rem] border-4 border-[#1a1a20] shadow-2xl rotate-12 opacity-60 z-0 transform scale-90" />
+                 {/* Results (Right/Back) */}
+                 <img
+                    src="assets/skin-results.png"
+                    alt="Results"
+                    onClick={() => setLightboxImg("assets/skin-results.png")}
+                    className="absolute right-0 top-10 w-48 rounded-[2rem] border-4 border-[#1a1a20] shadow-2xl rotate-12 opacity-60 z-0 transform scale-90 cursor-zoom-in hover:opacity-100 hover:scale-95 hover:z-20 transition-all duration-300"
+                 />
 
-                    {/* Hero Scan (Center/Front) */}
-                    <div className="relative z-10 w-56 rounded-[2.5rem] border-[8px] border-[#1a1a20] overflow-hidden shadow-2xl bg-black transform hover:scale-105 transition-transform duration-500">
-                        {/* Scanner Effects */}
-                        <div className="scan-line"></div>
-                        <div className="scan-overlay"></div>
-                        <img src="assets/skin-hero.png" alt="Scan" className="w-full h-auto opacity-90" />
-                    </div>
+                 {/* Hero Scan (Center/Front) */}
+                 <div
+                    onClick={() => setLightboxImg("assets/skin-hero.png")}
+                    className="relative z-10 w-56 rounded-[2.5rem] border-[8px] border-[#1a1a20] overflow-hidden shadow-2xl bg-black transform hover:scale-105 transition-transform duration-500 cursor-zoom-in"
+                 >
+                     <div className="scan-line"></div>
+                     <div className="scan-overlay"></div>
+                     <img src="assets/skin-hero.png" alt="Scan" className="w-full h-auto opacity-90" />
                  </div>
+              </div>
 
                  <div>
                     <div className="w-12 h-12 rounded-lg bg-purple-500/20 flex items-center justify-center text-purple-400 mb-6">
@@ -538,7 +548,7 @@ export default function LightspireAI() {
 
 
               {/* DONATION BANNER */}
-              <div className="relative overflow-hidden p-8 rounded-2xl bg-[#09090b] border border-emerald-500/20 text-center max-w-2xl mx-auto group hover:border-emerald-500/40 transition-colors">
+              <div className="mt-32 relative overflow-hidden p-8 rounded-2xl bg-[#09090b] border border-emerald-500/20 text-center max-w-2xl mx-auto group hover:border-emerald-500/40 transition-colors">
                  <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-emerald-500 to-transparent"></div>
                  <h3 className="text-lg font-bold mb-2 text-white flex items-center justify-center gap-2">
                      <Monitor size={18} className="text-emerald-500"/> Support Indie Development
@@ -552,6 +562,24 @@ export default function LightspireAI() {
               </div>
            </div>
         )}
+        {/* LIGHTBOX OVERLAY */}
+          {lightboxImg && (
+             <div
+                className="fixed inset-0 z-[100] bg-black/90 backdrop-blur-md flex items-center justify-center p-4 animate-fade-in"
+                onClick={() => setLightboxImg(null)}
+             >
+                <button className="absolute top-6 right-6 text-white/50 hover:text-white">
+                   <ArrowLeft size={32} className="rotate-180" /> {/* Close Icon */}
+                </button>
+                <img
+                   src={lightboxImg}
+                   alt="Fullscreen"
+                   className="max-w-full max-h-[90vh] rounded-2xl shadow-2xl border border-white/10"
+                   onClick={(e) => e.stopPropagation()} // Prevent closing if clicking the image itself
+                />
+             </div>
+          )}
+
 
       </main>
 
