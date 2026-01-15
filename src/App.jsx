@@ -172,6 +172,7 @@ const ScrambleTitle = ({ text }) => {
   return <h1 className="text-4xl md:text-6xl font-extrabold tracking-tighter mb-4 text-transparent bg-clip-text bg-gradient-to-r from-white via-white to-gray-500 min-h-[1.2em]">{scrambled}</h1>;
 };
 
+
 // --- MAIN APP ---
 export default function LightspireAI() {
   const [page, setPage] = useState('home');
@@ -347,7 +348,7 @@ export default function LightspireAI() {
                             <div className="w-2 h-2 rounded-full bg-yellow-500/50"></div>
                             <div className="w-2 h-2 rounded-full bg-green-500/50"></div>
                         </div>
-                        <ImageWithFallback src={mallornHero} alt="Mallorn UI" className="w-full h-auto rounded border border-white/5" />
+                        <img src={mallornHero} alt="Mallorn UI" className="w-full h-auto rounded border border-white/5" />
 
                         {/* Overlay Data */}
                         <div className="absolute bottom-6 left-6 right-6 bg-black/80 backdrop-blur-md border border-white/10 p-3 rounded flex items-center justify-between">
@@ -401,7 +402,7 @@ export default function LightspireAI() {
                      ].map((theme, i) => (
                         <div key={i} onClick={() => setMallornHero(theme.img)} className="cursor-pointer group relative">
                            <div className={`rounded-lg overflow-hidden border transition-all duration-300 ${mallornHero === theme.img ? `ring-2 ring-offset-2 ring-offset-black ${theme.border} scale-[1.02]` : 'border-white/10 opacity-60 hover:opacity-100'}`}>
-                              <ImageWithFallback src={theme.img} alt={theme.name} className="w-full" />
+                              <img src={theme.img} alt={theme.name} className="w-full" />
                               <div className={`absolute inset-0 bg-gradient-to-t from-black/80 to-transparent flex items-end p-3`}>
                                   <span className={`text-xs font-mono font-bold ${theme.color}`}>{theme.name}</span>
                               </div>
@@ -462,7 +463,7 @@ export default function LightspireAI() {
                         <div className="scan-line"></div>
                         <div className="scan-overlay"></div>
 
-                        <ImageWithFallback src="assets/skin-hero.png" alt="Scan" className="w-full h-auto opacity-90" />
+                        <img src="assets/skin-hero.png" alt="Scan" className="w-full h-auto opacity-90" />
 
                         {/* UI Overlay */}
                         <div className="absolute top-6 left-1/2 -translate-x-1/2 bg-black/50 backdrop-blur px-4 py-1 rounded-full border border-white/10 text-[10px] text-white font-mono whitespace-nowrap">
@@ -550,7 +551,7 @@ export default function LightspireAI() {
                     </button>
                  </div>
                  <div className="flex-1 relative z-10">
-                     <ImageWithFallback src="assets/skin-routine.png" alt="Routine" className="rounded-lg shadow-2xl border border-white/10 transform rotate-1 hover:rotate-0 transition-transform duration-500" />
+                     <img src="assets/skin-routine.png" alt="Routine" className="rounded-lg shadow-2xl border border-white/10 transform rotate-1 hover:rotate-0 transition-transform duration-500" />
                  </div>
               </div>
 
