@@ -427,7 +427,7 @@ export default function LightspireAI() {
                  <p className="text-emerald-200/60 text-sm mb-6">
                     SkinGenie is free to use. If it helps your skincare journey, consider supporting future updates.
                  </p>
-                 <a href={LINKS.kofi} target="_blank" className="inline-flex items-center gap-2 bg-emerald-500 hover:bg-emerald-600 text-white px-6 py-3 rounded-lg font-bold transition-all shadow-lg hover:shadow-emerald-500/20 no-underline">
+                 <a href={LINKS.kofi} target="_blank" className="inline-flex items-center gap-2 bg-purple-500 hover:bg-purple-600 text-white px-6 py-3 rounded-lg font-bold transition-all shadow-lg hover:shadow-emerald-500/20 no-underline">
                     <Coffee size={18} /> Buy me a Coffee
                  </a>
               </div>
