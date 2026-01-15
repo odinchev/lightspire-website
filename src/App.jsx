@@ -14,8 +14,15 @@ import {
   CheckCircle2,
   Camera,
   ShieldCheck,
-  Activity
-
+  Activity,
+  Zap,
+  BarChart3,
+  Smartphone,
+  Layers,
+  AlertCircle,
+  Database,
+  Lock,
+  RefreshCw
 } from 'lucide-react';
 
 // --- ADVANCED CSS & ANIMATIONS ---
@@ -176,7 +183,6 @@ export default function LightspireAI() {
   useEffect(() => {
     setMounted(true);
     window.scrollTo(0,0);
-    // Reset Mallorn hero on page switch
     if(page === 'mallorn') setMallornHero("assets/theme-mallorn.png");
   }, [page]);
 
@@ -203,7 +209,7 @@ export default function LightspireAI() {
            </button>
            <div className="h-4 w-[1px] bg-white/10 hidden sm:block"></div>
            <div className="hidden sm:flex items-center gap-1">
-              <a href="https://github.com/odinchev" target="_blank" className="p-2 hover:bg-white/5 rounded-full transition-colors text-gray-400 hover:text-white">
+              <a href="https://github.com/odinchev" target="_blank" rel="noreferrer" className="p-2 hover:bg-white/5 rounded-full transition-colors text-gray-400 hover:text-white">
                  <Github size={18} />
               </a>
            </div>
@@ -232,7 +238,7 @@ export default function LightspireAI() {
                  </p>
 
                  <div className="flex justify-center gap-4">
-                    <button onClick={() => setPage('mallorn')} className="btn-ai px-8 py-3 font-bold flex items-center gap-2">
+                    <button onClick={() => setPage('mallorn')} className="btn-ai px-8 py-3 font-bold flex items-center gap-2 cursor-pointer">
                        View Latest Project <ArrowRight size={18} />
                     </button>
                  </div>
@@ -252,7 +258,7 @@ export default function LightspireAI() {
                     <h3 className="text-2xl font-bold mb-2 text-white group-hover:text-blue-300 transition-colors">Mallorn AI</h3>
                     <p className="text-gray-400 text-sm leading-relaxed mb-6">
                        Predictive drive health monitoring using Random Forest AI.
-                       Move beyond static thresholds and catch failures before they happen.
+                       Watcher of the Heartwood.
                     </p>
                     <div className="flex items-center gap-2 text-xs font-mono text-gray-500 group-hover:text-white transition-colors">
                        <span className="text-blue-500">&gt;&gt;&gt;</span> VIEW_MODULE
@@ -271,8 +277,8 @@ export default function LightspireAI() {
                     </div>
                     <h3 className="text-2xl font-bold mb-2 text-white group-hover:text-purple-300 transition-colors">SkinGenie</h3>
                     <p className="text-gray-400 text-sm leading-relaxed mb-6">
-                       AI-driven skin analysis and routine tracker.
-                       Understand your skin health using computer vision technology.
+                       Your personal skincare command center.
+                       Build routines, swap products, and analyze skin health.
                     </p>
                     <div className="flex items-center gap-2 text-xs font-mono text-gray-500 group-hover:text-white transition-colors">
                        <span className="text-purple-500">&gt;&gt;&gt;</span> VIEW_MODULE
@@ -282,153 +288,277 @@ export default function LightspireAI() {
            </div>
         )}
 
-        {/* --- MALLORN DETAIL PAGE (GALLERY STYLE) --- */}
+        {/* --- MALLORN DETAIL PAGE (UPDATED - REAL DATA) --- */}
         {page === 'mallorn' && (
            <div className="animate-fade-in">
-              <button onClick={() => setPage('home')} className="mb-8 flex items-center gap-2 text-sm text-gray-400 hover:text-white transition-colors group">
-                 <ArrowLeft size={16} className="group-hover:-translate-x-1 transition-transform" /> BACK_TO_ROOT
-              </button>
-
-              <div className="text-center mb-12">
-                 <div className="inline-block px-3 py-1 rounded mb-4 text-xs font-mono border border-blue-500/30 text-blue-400 bg-blue-500/10">
-                    MODULE: MALLORN
-                 </div>
-                 <h1 className="text-4xl md:text-5xl font-bold mb-6">Predictive Storage Defense</h1>
-                 <p className="text-lg text-gray-400 max-w-2xl mx-auto">
-                    The Sentinel for your Storage. Trained on 300,000+ drives. Mallorn ignores manufacturer thresholds and uses a machine learning model to detect non-linear failure patterns.
-                 </p>
-
-                 <div className="flex gap-4 justify-center mt-8">
-                    <a href={LINKS.mallornDownload} className="btn-ai px-6 py-3 font-bold flex items-center gap-2 no-underline">
-                        <Monitor size={18}/> Download for Windows
-                    </a>
-                    <a href={LINKS.mallornRepo} target="_blank" className="px-6 py-3 rounded-lg border border-white/10 hover:bg-white/5 transition-colors font-medium text-sm flex items-center gap-2 text-white no-underline">
-                        <Github size={18}/> View on GitHub
-                    </a>
-                 </div>
+              {/* HEADER NAV */}
+              <div className="flex items-center justify-between mb-12 border-b border-white/5 pb-4">
+                <button onClick={() => setPage('home')} className="flex items-center gap-2 text-sm text-gray-400 hover:text-white transition-colors group">
+                   <ArrowLeft size={16} className="group-hover:-translate-x-1 transition-transform" /> BACK_TO_ROOT
+                </button>
+                <div className="font-mono text-xs text-blue-500/60">SYS_ID: MALLORN_v2.1</div>
               </div>
 
-              {/* GALLERY SECTION */}
-              <div className="bg-[#050505] rounded-[1rem] border border-white/10 p-2 shadow-2xl overflow-hidden mb-8">
-                 <img src={mallornHero} alt="Mallorn UI" className="w-full h-auto rounded-lg" />
-              </div>
-
-              <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-16">
-                 {[
-                    { img: "assets/theme-mallorn.png", name: "DEFAULT", color: "text-blue-400" },
-                    { img: "assets/theme-valinor.png", name: "VALINOR", color: "text-white" },
-                    { img: "assets/theme-isengard.png", name: "ISENGARD", color: "text-red-500" },
-                    { img: "assets/theme-lothlorien.png", name: "LOTHLÓRIEN", color: "text-emerald-400" }
-                 ].map((theme, i) => (
-                    <div key={i} onClick={() => setMallornHero(theme.img)} className="cursor-pointer group text-center">
-                       <div className={`rounded-lg border border-white/10 overflow-hidden mb-2 transition-all ${mallornHero === theme.img ? 'ring-2 ring-blue-500' : 'opacity-70 group-hover:opacity-100'}`}>
-                          <img src={theme.img} alt={theme.name} />
-                       </div>
-                       <span className={`text-[10px] font-mono font-bold ${theme.color}`}>{theme.name}</span>
+              {/* HERO SECTION */}
+              <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center mb-16">
+                 <div>
+                    <div className="inline-flex items-center gap-2 text-blue-400 mb-4 font-mono text-sm">
+                        <Terminal size={14} /> ./init_heartwood_protocol.sh
                     </div>
-                 ))}
+                    <h1 className="text-5xl font-extrabold mb-6 tracking-tight">
+                       Watcher of the <span className="text-blue-500">Heartwood</span>
+                    </h1>
+                    <p className="text-lg text-gray-400 mb-8 leading-relaxed border-l-2 border-blue-500/30 pl-4">
+                       Traditional tools rely on manufacturer thresholds that often trigger too late. Mallorn uses a <b>Random Forest Classifier</b> trained on <b>300,000+ drive-days</b> of data to detect non-linear patterns of imminent failure.
+                    </p>
+
+                    {/* TELEMETRY GRID */}
+                    <div className="grid grid-cols-2 gap-3 mb-8">
+                        <div className="bg-blue-900/10 border border-blue-500/20 p-4 rounded-lg">
+                            <div className="text-xs text-blue-400 font-mono mb-1">TRAINING_CORPUS</div>
+                            <div className="text-xl font-bold text-white">300k+ Drives</div>
+                        </div>
+                        <div className="bg-blue-900/10 border border-blue-500/20 p-4 rounded-lg">
+                            <div className="text-xs text-blue-400 font-mono mb-1">VALIDATION_ACCURACY</div>
+                            <div className="text-xl font-bold text-white">~93%</div>
+                        </div>
+                    </div>
+
+                    <div className="flex flex-wrap gap-4">
+                       <a href={LINKS.mallornDownload} className="btn-ai px-6 py-3 font-bold flex items-center gap-2 no-underline hover:brightness-110">
+                           <Monitor size={18}/> Download for Windows
+                       </a>
+                       <a href={LINKS.mallornRepo} target="_blank" rel="noreferrer" className="px-6 py-3 rounded-lg border border-white/10 hover:bg-white/5 transition-colors font-medium text-sm flex items-center gap-2 text-white no-underline">
+                           <Github size={18}/> Source Code
+                       </a>
+                    </div>
+                 </div>
+
+                 {/* INTERACTIVE PREVIEW */}
+                 <div className="relative group">
+                     {/* Decorative Elements */}
+                     <div className="absolute -top-4 -right-4 w-24 h-24 bg-blue-500/20 rounded-full blur-3xl"></div>
+                     <div className="absolute -bottom-4 -left-4 w-32 h-32 bg-indigo-500/20 rounded-full blur-3xl"></div>
+
+                     {/* Main Image Container */}
+                     <div className="tech-border tech-corner rounded-xl bg-[#0a0a0f] p-2 shadow-2xl relative z-10">
+                        <div className="absolute top-4 right-4 flex gap-1 z-20">
+                            <div className="w-2 h-2 rounded-full bg-red-500/50"></div>
+                            <div className="w-2 h-2 rounded-full bg-yellow-500/50"></div>
+                            <div className="w-2 h-2 rounded-full bg-green-500/50"></div>
+                        </div>
+                        <ImageWithFallback src={mallornHero} alt="Mallorn UI" className="w-full h-auto rounded border border-white/5" />
+
+                        {/* Overlay Data */}
+                        <div className="absolute bottom-6 left-6 right-6 bg-black/80 backdrop-blur-md border border-white/10 p-3 rounded flex items-center justify-between">
+                             <div className="flex items-center gap-3">
+                                 <Activity className="text-blue-500 animate-pulse" size={16} />
+                                 <div className="text-xs font-mono text-gray-300">
+                                     HYBRID SCANNING ENGINE: <span className="text-green-400">ACTIVE</span>
+                                 </div>
+                             </div>
+                             <div className="text-xs font-mono text-gray-500">Tier 1: Direct Metal</div>
+                        </div>
+                     </div>
+                 </div>
               </div>
 
-              {/* DONATION BANNER (GREEN) */}
-              <div className="p-8 rounded-2xl bg-emerald-900/10 border border-emerald-500/20 text-center max-w-xl mx-auto">
-                 <h3 className="text-lg font-bold mb-2 text-emerald-400">Mallorn is Free & Open Source</h3>
-                 <p className="text-emerald-200/60 text-sm mb-6">
-                    I built this to save data. If it saved yours, consider buying me a coffee.
+              {/* FEATURES (FOUR HORSEMEN) */}
+              <div className="mb-20">
+                  <h3 className="text-xl font-bold mb-6 flex items-center gap-2">
+                      <Database size={20} className="text-blue-500"/> THE FOUR HORSEMEN OF FAILURE
+                  </h3>
+                  <p className="text-gray-400 text-sm mb-6 max-w-2xl">
+                    Mallorn looks at the raw physics of the drive, specifically targeting these unnormalized vectors:
+                  </p>
+                  <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
+                     {[
+                       { id: "SMART 5", name: "Reallocated Sectors", desc: "Permanent physical damage." },
+                       { id: "SMART 187", name: "Uncorrectable Errors", desc: "Controller failure panic." },
+                       { id: "SMART 197", name: "Pending Sectors", desc: "Unstable magnetic media." },
+                       { id: "SMART 9", name: "Power-On Hours", desc: "Mechanical wear & tear." },
+                     ].map((item, i) => (
+                        <div key={i} className="bg-blue-900/5 border border-blue-500/10 p-4 rounded-lg">
+                           <div className="font-mono text-blue-500 text-xs mb-1">{item.id}</div>
+                           <div className="font-bold text-white text-sm mb-2">{item.name}</div>
+                           <div className="text-gray-500 text-xs">{item.desc}</div>
+                        </div>
+                     ))}
+                  </div>
+              </div>
+
+              {/* THEME SELECTOR (UPDATED) */}
+              <div className="mb-20">
+                  <h3 className="text-xl font-bold mb-6 flex items-center gap-2">
+                      <Layers size={20} className="text-blue-500"/> VISUAL_CUSTOMIZATION
+                  </h3>
+                  <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+                     {[
+                        { img: "assets/theme-mallorn.png", name: "MALLORN", color: "text-blue-400", bg: "bg-blue-500/10", border: "border-blue-500/30" },
+                        { img: "assets/theme-valinor.png", name: "VALINOR", color: "text-gray-200", bg: "bg-gray-500/10", border: "border-gray-500/30" },
+                        { img: "assets/theme-isengard.png", name: "ISENGARD", color: "text-red-500", bg: "bg-red-900/20", border: "border-red-500/30" },
+                        { img: "assets/theme-lothlorien.png", name: "LOTHLÓRIEN", color: "text-emerald-400", bg: "bg-emerald-500/10", border: "border-emerald-500/30" }
+                     ].map((theme, i) => (
+                        <div key={i} onClick={() => setMallornHero(theme.img)} className="cursor-pointer group relative">
+                           <div className={`rounded-lg overflow-hidden border transition-all duration-300 ${mallornHero === theme.img ? `ring-2 ring-offset-2 ring-offset-black ${theme.border} scale-[1.02]` : 'border-white/10 opacity-60 hover:opacity-100'}`}>
+                              <ImageWithFallback src={theme.img} alt={theme.name} className="w-full" />
+                              <div className={`absolute inset-0 bg-gradient-to-t from-black/80 to-transparent flex items-end p-3`}>
+                                  <span className={`text-xs font-mono font-bold ${theme.color}`}>{theme.name}</span>
+                              </div>
+                           </div>
+                        </div>
+                     ))}
+                  </div>
+              </div>
+
+              {/* DONATION BANNER */}
+              <div className="relative overflow-hidden p-8 rounded-2xl bg-[#09090b] border border-emerald-500/20 text-center max-w-2xl mx-auto group hover:border-emerald-500/40 transition-colors">
+                 <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-emerald-500 to-transparent"></div>
+                 <h3 className="text-lg font-bold mb-2 text-white flex items-center justify-center gap-2">
+                     <Monitor size={18} className="text-emerald-500"/> Open Source & Free
+                 </h3>
+                 <p className="text-gray-400 text-sm mb-6">
+                    I built this to save data, not to make money. If Mallorn saved your files, a coffee is appreciated.
                  </p>
-                 <a href={LINKS.kofi} target="_blank" className="inline-flex items-center gap-2 bg-emerald-500 hover:bg-emerald-600 text-white px-6 py-3 rounded-lg font-bold transition-all shadow-lg hover:shadow-emerald-500/20 no-underline">
-                    <Coffee size={18} /> Buy me a Coffee
+                 <a href={LINKS.kofi} target="_blank" rel="noreferrer" className="inline-flex items-center gap-2 bg-emerald-600 hover:bg-emerald-500 text-white px-6 py-2 rounded-full font-bold transition-all shadow-lg hover:shadow-emerald-500/20 no-underline text-sm">
+                    <Coffee size={16} /> Buy me a Coffee
                  </a>
               </div>
            </div>
         )}
 
-        {/* --- SKINGENIE DETAIL PAGE (ZIG ZAG) --- */}
+        {/* --- SKINGENIE DETAIL PAGE (UPDATED - REAL DATA) --- */}
         {page === 'skingenie' && (
            <div className="animate-fade-in">
-              <button onClick={() => setPage('home')} className="mb-8 flex items-center gap-2 text-sm text-gray-400 hover:text-white transition-colors group">
-                 <ArrowLeft size={16} className="group-hover:-translate-x-1 transition-transform" /> BACK_TO_ROOT
-              </button>
+              <div className="flex items-center justify-between mb-12 border-b border-white/5 pb-4">
+                <button onClick={() => setPage('home')} className="flex items-center gap-2 text-sm text-gray-400 hover:text-white transition-colors group">
+                   <ArrowLeft size={16} className="group-hover:-translate-x-1 transition-transform" /> BACK_TO_ROOT
+                </button>
+                <div className="font-mono text-xs text-purple-500/60">SYS_ID: SKINGENIE_AI</div>
+              </div>
 
-              <div className="text-center mb-16">
-                 <div className="inline-block px-3 py-1 rounded mb-4 text-xs font-mono border border-purple-500/30 text-purple-400 bg-purple-500/10">
-                    MODULE: SKINGENIE
+              <div className="text-center mb-20">
+                 <div className="inline-block px-4 py-1.5 rounded-full mb-6 text-xs font-bold tracking-wider border border-purple-500/30 text-purple-300 bg-purple-900/10 uppercase">
+                    Your Personal Skincare Command Center
                  </div>
-                 <h1 className="text-4xl md:text-5xl font-bold mb-6">Your Pocket Dermatologist</h1>
-                 <p className="text-lg text-gray-400 max-w-2xl mx-auto mb-8">
-                    Stop guessing what your skin needs. SkinGenie uses advanced computer vision to scan your face in seconds and build personalized routines.
+                 <h1 className="text-5xl md:text-7xl font-bold mb-8 bg-gradient-to-b from-white to-purple-200 bg-clip-text text-transparent">
+                    Build. Track.<br/>Perfect.
+                 </h1>
+                 <p className="text-lg text-gray-400 max-w-2xl mx-auto mb-10">
+                    A complete platform for your face. Generate AI-powered routines, swap products to fit your budget, and track your skin's evolution.
                  </p>
-                 <a href={LINKS.skinGenieStore} target="_blank" className="btn-ai px-6 py-3 font-bold inline-flex items-center gap-2 no-underline">
-                    <Play size={18} fill="currentColor"/> Get on Google Play
+                 <a href={LINKS.skinGenieStore} target="_blank" rel="noreferrer" className="btn-ai px-8 py-4 font-bold inline-flex items-center gap-3 no-underline text-lg rounded-full hover:scale-105 transition-transform">
+                    <Play size={20} fill="currentColor"/> Get on Google Play
                  </a>
               </div>
 
-              {/* SECTION 1: SCAN */}
-              <div className="flex flex-col md:flex-row items-center gap-12 mb-24">
-                 <div className="flex-1 relative">
-                    <div className="absolute -inset-4 bg-purple-600/20 blur-2xl rounded-full"></div>
-                    <img src="assets/skin-hero.png" alt="Scan" className="relative rounded-xl border border-white/10 shadow-2xl w-full" />
+              {/* SECTION 1: THE SCANNER (VISUAL UPGRADE) */}
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-16 items-center mb-32">
+                 <div className="relative mx-auto w-full max-w-[300px]">
+                    {/* Phone Frame */}
+                    <div className="absolute -inset-4 bg-gradient-to-b from-purple-500/30 to-blue-500/5 blur-2xl rounded-full opacity-50"></div>
+                    <div className="relative rounded-[2.5rem] border-[8px] border-[#1a1a20] overflow-hidden shadow-2xl bg-black">
+                        {/* Scanner Effects */}
+                        <div className="scan-line"></div>
+                        <div className="scan-overlay"></div>
+
+                        <ImageWithFallback src="assets/skin-hero.png" alt="Scan" className="w-full h-auto opacity-90" />
+
+                        {/* UI Overlay */}
+                        <div className="absolute top-6 left-1/2 -translate-x-1/2 bg-black/50 backdrop-blur px-4 py-1 rounded-full border border-white/10 text-[10px] text-white font-mono whitespace-nowrap">
+                            ANALYZING_CONCERNS...
+                        </div>
+                    </div>
                  </div>
-                 <div className="flex-1">
-                    <h2 className="text-2xl font-bold mb-4 text-purple-400">Discover Your Skin's Story</h2>
-                    <p className="text-gray-400 leading-relaxed mb-6">
-                       SkinGenie uses advanced computer vision to scan your face in seconds. It maps hydration, oiliness, and texture without sending photos to the cloud.
+
+                 <div>
+                    <div className="w-12 h-12 rounded-lg bg-purple-500/20 flex items-center justify-center text-purple-400 mb-6">
+                        <Camera size={24} />
+                    </div>
+                    <h2 className="text-3xl font-bold mb-6">See What AI Sees</h2>
+                    <p className="text-gray-400 leading-relaxed mb-8">
+                       Upload a selfie and get an instant analysis of your skin type, concerns, and sensitivity. Our advanced AI creates a personalized profile in seconds.
                     </p>
-                    <ul className="space-y-3">
-                       {['Instant Camera Scan', 'Privacy-First Processing', 'Works on all skin tones'].map((item, i) => (
-                          <li key={i} className="flex items-center gap-3 text-gray-300">
-                             <CheckCircle2 size={16} className="text-purple-500" /> {item}
-                          </li>
+
+                    <div className="space-y-4">
+                       {[
+                         { title: 'Privacy First', desc: 'Images are deleted immediately after analysis.', icon: Lock },
+                         { title: 'Unlimited Saves', desc: 'Create and save as many routines as you want.', icon: Database },
+                         { title: 'Custom Builder', desc: 'Prefer to DIY? Build your routine from scratch.', icon: Layers }
+                       ].map((item, i) => (
+                          <div key={i} className="flex items-center gap-4 p-4 rounded-xl bg-white/5 border border-white/5 hover:border-purple-500/30 transition-colors">
+                             <item.icon size={20} className="text-purple-400" />
+                             <div>
+                                <div className="font-bold text-sm text-gray-200">{item.title}</div>
+                                <div className="text-xs text-gray-500">{item.desc}</div>
+                             </div>
+                          </div>
                        ))}
-                    </ul>
+                    </div>
                  </div>
               </div>
 
-              {/* SECTION 2: RESULTS (REVERSE) */}
-              <div className="flex flex-col md:flex-row-reverse items-center gap-12 mb-24">
-                 <div className="flex-1 relative">
-                    <div className="absolute -inset-4 bg-blue-600/20 blur-2xl rounded-full"></div>
-                    <img src="assets/skin-results.png" alt="Results" className="relative rounded-xl border border-white/10 shadow-2xl w-full" />
-                 </div>
-                 <div className="flex-1">
-                    <h2 className="text-2xl font-bold mb-4 text-blue-400">Clinical-Grade Analysis</h2>
-                    <p className="text-gray-400 leading-relaxed mb-6">
-                       Our AI breaks down your skin health into understandable metrics. Identify issues before they become visible problems.
+              {/* SECTION 2: ANALYSIS GRID */}
+              <div className="mb-32">
+                  <div className="text-center mb-12">
+                      <h2 className="text-3xl font-bold mb-4">Total Control</h2>
+                      <p className="text-gray-400">Manage every aspect of your skincare journey.</p>
+                  </div>
+
+                  <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+                      {/* Card 1 */}
+                      <div className="bg-[#0f0f12] p-6 rounded-2xl border border-white/5 hover:border-blue-500/30 transition-all group">
+                          <div className="mb-4 flex justify-between items-start">
+                              <RefreshCw className="text-blue-500 group-hover:scale-110 transition-transform"/>
+                              <span className="text-xs font-mono text-gray-600">FEATURE_01</span>
+                          </div>
+                          <h3 className="text-xl font-bold mb-2">Smart Swapping</h3>
+                          <p className="text-sm text-gray-400 mb-4">Not satisfied with a recommendation? Fine-tune AI results by finding alternatives that match your budget.</p>
+                      </div>
+                       {/* Card 2 */}
+                       <div className="bg-[#0f0f12] p-6 rounded-2xl border border-white/5 hover:border-pink-500/30 transition-all group">
+                          <div className="mb-4 flex justify-between items-start">
+                              <Zap className="text-pink-500 group-hover:scale-110 transition-transform"/>
+                              <span className="text-xs font-mono text-gray-600">FEATURE_02</span>
+                          </div>
+                          <h3 className="text-xl font-bold mb-2">AM / PM Routines</h3>
+                          <p className="text-sm text-gray-400 mb-4">Create separate morning and evening regimens. Set one as 'Active' to track what you're currently using.</p>
+                      </div>
+                       {/* Card 3 */}
+                       <div className="bg-[#0f0f12] p-6 rounded-2xl border border-white/5 hover:border-emerald-500/30 transition-all group">
+                          <div className="mb-4 flex justify-between items-start">
+                              <ShieldCheck className="text-emerald-500 group-hover:scale-110 transition-transform"/>
+                              <span className="text-xs font-mono text-gray-600">FEATURE_03</span>
+                          </div>
+                          <h3 className="text-xl font-bold mb-2">Ingredient Safety</h3>
+                          <p className="text-sm text-gray-400 mb-4">We analyze 8+ attributes to ensure products match your specific sensitivity profile and skin goals.</p>
+                      </div>
+                  </div>
+              </div>
+
+              {/* SECTION 3: ROUTINE (Dark Card Layout) */}
+              <div className="rounded-3xl bg-[#0a0a0c] border border-white/10 p-8 md:p-12 flex flex-col md:flex-row items-center gap-12 relative overflow-hidden">
+                 <div className="absolute top-0 right-0 w-1/2 h-full bg-gradient-to-l from-emerald-900/10 to-transparent pointer-events-none"></div>
+
+                 <div className="flex-1 z-10">
+                    <h2 className="text-3xl font-bold mb-4 text-white">Export Your Genius</h2>
+                    <p className="text-gray-400 mb-8 leading-relaxed">
+                       Need a PDF to prove how amazing your skincare routine is? Boom. Export your full regimen with product details, prices, and instructions in one tap.
                     </p>
-                    <ul className="space-y-3">
-                       <li className="flex items-start gap-3 text-gray-300">
-                          <Activity size={16} className="text-blue-500 mt-1" />
-                          <span><strong className="text-white">80+ Analysis Points:</strong> From hydration levels to texture.</span>
-                       </li>
-                       <li className="flex items-start gap-3 text-gray-300">
-                          <ShieldCheck size={16} className="text-blue-500 mt-1" />
-                          <span><strong className="text-white">Actionable Insights:</strong> We explain <em>why</em> it matters.</span>
-                       </li>
-                    </ul>
+                    <button className="flex items-center gap-2 text-emerald-400 font-bold text-sm uppercase tracking-wide hover:text-emerald-300 transition-colors">
+                        Explore Dashboard <ArrowRight size={16}/>
+                    </button>
+                 </div>
+                 <div className="flex-1 relative z-10">
+                     <ImageWithFallback src="assets/skin-routine.png" alt="Routine" className="rounded-lg shadow-2xl border border-white/10 transform rotate-1 hover:rotate-0 transition-transform duration-500" />
                  </div>
               </div>
 
-              {/* SECTION 3: ROUTINE */}
-              <div className="flex flex-col md:flex-row items-center gap-12 mb-24">
-                 <div className="flex-1 relative">
-                    <div className="absolute -inset-4 bg-emerald-600/20 blur-2xl rounded-full"></div>
-                    <img src="assets/skin-routine.png" alt="Routine" className="relative rounded-xl border border-white/10 shadow-2xl w-full" />
-                 </div>
-                 <div className="flex-1">
-                    <h2 className="text-2xl font-bold mb-4 text-emerald-400">Build Your Routine</h2>
-                    <p className="text-gray-400 leading-relaxed">
-                       Consistency is key to glowing skin. Organize your products into AM and PM routines and get smart reminders so you never miss a step.
-                    </p>
-                 </div>
-              </div>
-
-              {/* DONATION BANNER (GREEN) */}
-              <div className="p-8 rounded-2xl bg-emerald-900/10 border border-emerald-500/20 text-center max-w-xl mx-auto">
-                 <h3 className="text-lg font-bold mb-2 text-emerald-400">Support Indie Development</h3>
-                 <p className="text-emerald-200/60 text-sm mb-6">
-                    SkinGenie is free to use. If it helps your skincare journey, consider supporting future updates.
-                 </p>
-                 <a href={LINKS.kofi} target="_blank" className="inline-flex items-center gap-2 bg-purple-500 hover:bg-purple-600 text-white px-6 py-3 rounded-lg font-bold transition-all shadow-lg hover:shadow-emerald-500/20 no-underline">
-                    <Coffee size={18} /> Buy me a Coffee
+              {/* FOOTER CTA */}
+              <div className="mt-20 text-center">
+                 <p className="text-gray-500 text-sm mb-4">Ready to glow up?</p>
+                 <a href={LINKS.kofi} target="_blank" rel="noreferrer" className="inline-flex items-center gap-2 text-gray-300 hover:text-white transition-colors border-b border-gray-700 hover:border-white pb-1 text-sm no-underline">
+                    Support Development (Buy me a Coffee)
                  </a>
               </div>
            </div>
