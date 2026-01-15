@@ -447,19 +447,19 @@ export default function LightspireAI() {
                     <img
                        src="assets/skin-routine.png"
                        alt="Routine"
-                       className="absolute left-0 lg:left-4 top-10 w-40 rounded-[2rem] border-4 border-[#1a1a20] shadow-2xl -rotate-12 opacity-60 z-0 transform scale-90 transition-all duration-500 ease-out hover:scale-110 hover:z-50 hover:opacity-100 hover:rotate-0"
+                       className="absolute left-0 lg:left-4 top-10 w-40 rounded-[2rem] border-4 border-[#1a1a20] shadow-2xl -rotate-12 opacity-60 z-0 transform scale-90 transition-all duration-500 ease-out hover:scale-210 hover:z-50 hover:opacity-100 hover:rotate-0"
                     />
 
                     {/* Results (Right/Back) */}
                     <img
                        src="assets/skin-results.png"
                        alt="Results"
-                       className="absolute right-0 lg:right-4 top-10 w-40 rounded-[2rem] border-4 border-[#1a1a20] shadow-2xl rotate-12 opacity-60 z-0 transform scale-90 transition-all duration-500 ease-out hover:scale-110 hover:z-50 hover:opacity-100 hover:rotate-0"
+                       className="absolute right-0 lg:right-4 top-10 w-40 rounded-[2rem] border-4 border-[#1a1a20] shadow-2xl rotate-12 opacity-60 z-0 transform scale-90 transition-all duration-500 ease-out hover:scale-210 hover:z-50 hover:opacity-100 hover:rotate-0"
                     />
 
                     {/* Hero Scan (Center/Front) */}
                     <div
-                       className="relative z-10 w-48 rounded-[2.5rem] border-[8px] border-[#1a1a20] overflow-hidden shadow-2xl bg-black transform hover:scale-110 transition-transform duration-300"
+                       className="relative z-10 w-48 rounded-[2.5rem] border-[8px] border-[#1a1a20] overflow-hidden shadow-2xl bg-black transform hover:scale-210 transition-transform duration-300"
                     >
                         <div className="scan-line"></div>
                         <div className="scan-overlay"></div>
