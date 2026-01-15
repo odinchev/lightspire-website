@@ -404,10 +404,10 @@ export default function LightspireAI() {
               <div className="relative overflow-hidden p-8 rounded-2xl bg-[#09090b] border border-emerald-500/20 text-center max-w-2xl mx-auto group hover:border-emerald-500/40 transition-colors">
                  <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-emerald-500 to-transparent"></div>
                  <h3 className="text-lg font-bold mb-2 text-white flex items-center justify-center gap-2">
-                     <Monitor size={18} className="text-emerald-500"/> Open Source & Free
+                     <Monitor size={18} className="text-emerald-500"/> Mallorn is Free
                  </h3>
                  <p className="text-gray-400 text-sm mb-6">
-                    I built this to save data, not to make money. If Mallorn saved your files, a coffee is appreciated.
+                    I built this to save data. If it saved yours, consider buying me a coffee.
                  </p>
                  <a href={LINKS.kofi} target="_blank" rel="noreferrer" className="inline-flex items-center gap-2 bg-emerald-600 hover:bg-emerald-500 text-white px-6 py-2 rounded-full font-bold transition-all shadow-lg hover:shadow-emerald-500/20 no-underline text-sm">
                     <Coffee size={16} /> Buy me a Coffee
@@ -531,14 +531,18 @@ export default function LightspireAI() {
                  </div>
               </div>
 
-              {/* SKINGENIE DONATION */}
-              <div className="mt-32 p-8 rounded-2xl bg-emerald-900/10 border border-emerald-500/20 text-center max-w-xl mx-auto">
-                 <h3 className="text-lg font-bold mb-2 text-emerald-400">Support Indie Development</h3>
-                 <p className="text-emerald-200/60 text-sm mb-6">
+
+              {/* DONATION BANNER */}
+              <div className="relative overflow-hidden p-8 rounded-2xl bg-[#09090b] border border-emerald-500/20 text-center max-w-2xl mx-auto group hover:border-emerald-500/40 transition-colors">
+                 <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-emerald-500 to-transparent"></div>
+                 <h3 className="text-lg font-bold mb-2 text-white flex items-center justify-center gap-2">
+                     <Monitor size={18} className="text-emerald-500"/> Support Indie Development
+                 </h3>
+                 <p className="text-gray-400 text-sm mb-6">
                     SkinGenie is free to use. If it helps your skincare journey, consider supporting future updates.
                  </p>
-                 <a href={LINKS.kofi} target="_blank" className="inline-flex items-center gap-2 bg-emerald-500 hover:bg-emerald-600 text-white px-6 py-3 rounded-lg font-bold transition-all shadow-lg hover:shadow-emerald-500/20 no-underline">
-                    <Coffee size={18} /> Buy me a Coffee
+                 <a href={LINKS.kofi} target="_blank" rel="noreferrer" className="inline-flex items-center gap-2 bg-emerald-600 hover:bg-emerald-500 text-white px-6 py-2 rounded-full font-bold transition-all shadow-lg hover:shadow-emerald-500/20 no-underline text-sm">
+                    <Coffee size={16} /> Buy me a Coffee
                  </a>
               </div>
            </div>
