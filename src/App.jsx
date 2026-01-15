@@ -11,7 +11,11 @@ import {
   Cpu,
   Play,
   Coffee,
-  CheckCircle2
+  CheckCircle2,
+  Camera,
+  ShieldCheck,
+  Activity
+
 } from 'lucide-react';
 
 // --- ADVANCED CSS & ANIMATIONS ---
