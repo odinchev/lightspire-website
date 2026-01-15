@@ -438,27 +438,25 @@ export default function LightspireAI() {
                  </a>
               </div>
 
+              {/* SECTION 1: THE SCANNER (ZOOM ON HOVER) */}
               <div className="relative h-[400px] w-full flex justify-center items-center mb-32">
                  {/* Routine (Left/Back) */}
                  <img
                     src="assets/skin-routine.png"
                     alt="Routine"
-                    /* CHANGED: Positioning percentages and Hover Scale */
-                    className="absolute left-[15%] top-10 w-48 rounded-[2rem] border-4 border-[#1a1a20] shadow-2xl -rotate-12 opacity-60 z-0 transform scale-90 cursor-pointer hover:scale-110 hover:z-50 hover:opacity-100 transition-all duration-300 md:left-[25%]"
+                    className="absolute left-[10%] md:left-[25%] top-10 w-48 rounded-[2rem] border-4 border-[#1a1a20] shadow-2xl -rotate-12 opacity-60 scale-90 z-10 transition-all duration-500 ease-out cursor-default hover:scale-125 hover:opacity-100 hover:z-50 hover:rotate-0"
                  />
 
                  {/* Results (Right/Back) */}
                  <img
                     src="assets/skin-results.png"
                     alt="Results"
-                    /* CHANGED: Positioning percentages and Hover Scale */
-                    className="absolute right-[15%] top-10 w-48 rounded-[2rem] border-4 border-[#1a1a20] shadow-2xl rotate-12 opacity-60 z-0 transform scale-90 cursor-pointer hover:scale-110 hover:z-50 hover:opacity-100 transition-all duration-300 md:right-[25%]"
+                    className="absolute right-[10%] md:right-[25%] top-10 w-48 rounded-[2rem] border-4 border-[#1a1a20] shadow-2xl rotate-12 opacity-60 scale-90 z-10 transition-all duration-500 ease-out cursor-default hover:scale-125 hover:opacity-100 hover:z-50 hover:rotate-0"
                  />
 
                  {/* Hero Scan (Center/Front) */}
                  <div
-                    /* CHANGED: Added Hover Scale */
-                    className="relative z-10 w-56 rounded-[2.5rem] border-[8px] border-[#1a1a20] overflow-hidden shadow-2xl bg-black transform hover:scale-110 transition-transform duration-300 cursor-zoom-in"
+                    className="relative z-20 w-56 rounded-[2.5rem] border-[8px] border-[#1a1a20] overflow-hidden shadow-2xl bg-black transition-all duration-500 ease-out hover:scale-125 hover:z-50"
                  >
                      <div className="scan-line"></div>
                      <div className="scan-overlay"></div>
@@ -561,23 +559,7 @@ export default function LightspireAI() {
               </div>
            </div>
         )}
-        {/* LIGHTBOX OVERLAY */}
-        {lightboxImg && (
-           <div
-              className="fixed inset-0 z-[100] bg-black/90 backdrop-blur-md flex items-center justify-center p-4 animate-fade-in"
-              onClick={() => setLightboxImg(null)}
-           >
-              <button className="absolute top-6 right-6 text-white/50 hover:text-white">
-                 <ArrowLeft size={32} className="rotate-180" /> {/* Close Icon */}
-              </button>
-              <img
-                 src={lightboxImg}
-                 alt="Fullscreen"
-                 className="max-w-full max-h-[90vh] rounded-2xl shadow-2xl border border-white/10"
-                 onClick={(e) => e.stopPropagation()}
-              />
-           </div>
-        )}
+        
 
 
       </main>
