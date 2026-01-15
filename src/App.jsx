@@ -439,33 +439,33 @@ export default function LightspireAI() {
               </div>
 
               {/* SECTION 1: SPLIT LAYOUT (Images Left, Text Right) */}
-              <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center mb-32">
+                <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center mb-32">
 
-                 {/* LEFT: Phone Cluster */}
-                 <div className="relative h-[400px] w-full flex justify-center items-center">
-                    {/* Routine (Left/Back) */}
-                    <img
-                       src="assets/skin-routine.png"
-                       alt="Routine"
-                       className="absolute left-0 lg:left-4 top-10 w-40 rounded-[2rem] border-4 border-[#1a1a20] shadow-2xl -rotate-12 opacity-60 z-0 transform scale-90 transition-all duration-500 ease-out hover:scale-210 hover:z-50 hover:opacity-100 hover:rotate-0"
-                    />
+                   {/* LEFT: Phone Cluster */}
+                   <div className="relative h-[400px] w-full flex justify-center items-center group/cluster">
+                      {/* Routine (Left/Back) */}
+                      <img
+                         src="assets/skin-routine.png"
+                         alt="Routine"
+                         className="absolute left-0 lg:left-4 top-10 w-40 rounded-[2rem] border-4 border-[#1a1a20] shadow-2xl -rotate-12 opacity-80 z-10 transform scale-90 transition-all duration-300 ease-out cursor-zoom-in hover:scale-[1.8] hover:z-50 hover:opacity-100 hover:rotate-0"
+                      />
 
-                    {/* Results (Right/Back) */}
-                    <img
-                       src="assets/skin-results.png"
-                       alt="Results"
-                       className="absolute right-0 lg:right-4 top-10 w-40 rounded-[2rem] border-4 border-[#1a1a20] shadow-2xl rotate-12 opacity-60 z-0 transform scale-90 transition-all duration-500 ease-out hover:scale-210 hover:z-50 hover:opacity-100 hover:rotate-0"
-                    />
+                      {/* Results (Right/Back) */}
+                      <img
+                         src="assets/skin-results.png"
+                         alt="Results"
+                         className="absolute right-0 lg:right-4 top-10 w-40 rounded-[2rem] border-4 border-[#1a1a20] shadow-2xl rotate-12 opacity-80 z-10 transform scale-90 transition-all duration-300 ease-out cursor-zoom-in hover:scale-[1.8] hover:z-50 hover:opacity-100 hover:rotate-0"
+                      />
 
-                    {/* Hero Scan (Center/Front) */}
-                    <div
-                       className="relative z-10 w-48 rounded-[2.5rem] border-[8px] border-[#1a1a20] overflow-hidden shadow-2xl bg-black transform hover:scale-210 transition-transform duration-300"
-                    >
-                        <div className="scan-line"></div>
-                        <div className="scan-overlay"></div>
-                        <img src="assets/skin-hero.png" alt="Scan" className="w-full h-auto opacity-90" />
-                    </div>
-                 </div>
+                      {/* Hero Scan (Center/Front) */}
+                      <div
+                         className="relative z-20 w-48 rounded-[2.5rem] border-[8px] border-[#1a1a20] overflow-hidden shadow-2xl bg-black transform transition-all duration-300 ease-out cursor-zoom-in hover:scale-[1.8] hover:z-50"
+                      >
+                          <div className="scan-line"></div>
+                          <div className="scan-overlay"></div>
+                          <img src="assets/skin-hero.png" alt="Scan" className="w-full h-auto opacity-90" />
+                      </div>
+                   </div>
 
                  {/* RIGHT: Text Content */}
                  <div>
