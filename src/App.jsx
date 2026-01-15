@@ -438,24 +438,27 @@ export default function LightspireAI() {
                  </a>
               </div>
 
-              <div className="relative h-[400px] w-full flex justify-center items-center">
+              <div className="relative h-[400px] w-full flex justify-center items-center mb-32">
                  {/* Routine (Left/Back) */}
                  <img
                     src="assets/skin-routine.png"
                     alt="Routine"
-                    className="absolute left-0 top-10 w-48 rounded-[2rem] border-4 border-[#1a1a20] shadow-2xl -rotate-12 opacity-60 z-0 transform scale-90 cursor-pointer hover:scale-125 hover:z-50 hover:opacity-100 transition-all duration-500 ease-out md:left-12"
+                    /* CHANGED: Positioning percentages and Hover Scale */
+                    className="absolute left-[15%] top-10 w-48 rounded-[2rem] border-4 border-[#1a1a20] shadow-2xl -rotate-12 opacity-60 z-0 transform scale-90 cursor-pointer hover:scale-110 hover:z-50 hover:opacity-100 transition-all duration-300 md:left-[25%]"
                  />
 
                  {/* Results (Right/Back) */}
                  <img
                     src="assets/skin-results.png"
                     alt="Results"
-                    className="absolute right-0 top-10 w-48 rounded-[2rem] border-4 border-[#1a1a20] shadow-2xl rotate-12 opacity-60 z-0 transform scale-90 cursor-pointer hover:scale-125 hover:z-50 hover:opacity-100 transition-all duration-500 ease-out md:right-12"
+                    /* CHANGED: Positioning percentages and Hover Scale */
+                    className="absolute right-[15%] top-10 w-48 rounded-[2rem] border-4 border-[#1a1a20] shadow-2xl rotate-12 opacity-60 z-0 transform scale-90 cursor-pointer hover:scale-110 hover:z-50 hover:opacity-100 transition-all duration-300 md:right-[25%]"
                  />
 
                  {/* Hero Scan (Center/Front) */}
                  <div
-                    className="relative z-10 w-56 rounded-[2.5rem] border-[8px] border-[#1a1a20] overflow-hidden shadow-2xl bg-black transform cursor-pointer hover:scale-125 hover:z-50 transition-all duration-500 ease-out"
+                    /* CHANGED: Added Hover Scale */
+                    className="relative z-10 w-56 rounded-[2.5rem] border-[8px] border-[#1a1a20] overflow-hidden shadow-2xl bg-black transform hover:scale-110 transition-transform duration-300 cursor-zoom-in"
                  >
                      <div className="scan-line"></div>
                      <div className="scan-overlay"></div>
