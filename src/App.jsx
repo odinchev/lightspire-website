@@ -162,22 +162,25 @@ const ScrambleTitle = ({ text }) => {
 };
 
 // --- MAIN APP ---
-
 export default function LightspireAI() {
   const [page, setPage] = useState('home');
   const [mounted, setMounted] = useState(false);
 
+  // State for Mallorn Gallery
+  const [mallornHero, setMallornHero] = useState("assets/theme-mallorn.png");
+
   useEffect(() => {
     setMounted(true);
     window.scrollTo(0,0);
+    // Reset Mallorn hero on page switch
+    if(page === 'mallorn') setMallornHero("assets/theme-mallorn.png");
   }, [page]);
 
-  // YOUR ACTUAL LINKS
   const LINKS = {
     mallornDownload: "https://github.com/odinchev/Mallorn/releases/latest/download/Mallorn_Setup.exe",
     mallornRepo: "https://github.com/odinchev/Mallorn",
     skinGenieStore: "https://play.google.com/store/apps/details?id=com.lightspire.skingenie",
-    kofi: "https://ko-fi.com/YOUR_USERNAME" // Add your real link
+    kofi: "https://ko-fi.com/YOUR_USERNAME"
   };
 
   return (
@@ -205,9 +208,9 @@ export default function LightspireAI() {
 
       <main className="relative z-10 pt-32 pb-20 px-4 max-w-6xl mx-auto">
 
+        {/* === HOME PAGE === */}
         {page === 'home' && (
            <div className={`transition-opacity duration-700 ${mounted ? 'opacity-100' : 'opacity-0'}`}>
-              {/* HERO */}
               <div className="text-center max-w-3xl mx-auto mb-20">
                  <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-violet-500/10 border border-violet-500/20 text-violet-300 text-xs font-mono mb-6">
                     <span className="relative flex h-2 w-2">
@@ -231,9 +234,8 @@ export default function LightspireAI() {
                  </div>
               </div>
 
-              {/* CARDS GRID */}
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                 {/* MALLORN CARD */}
+                 {/* Mallorn Card */}
                  <div onClick={() => setPage('mallorn')} className="ai-card p-8 group cursor-pointer">
                     <div className="flex justify-between items-start mb-8">
                        <div className="p-3 bg-blue-500/10 rounded-xl text-blue-400 border border-blue-500/20 group-hover:scale-110 transition-transform duration-300">
@@ -253,7 +255,7 @@ export default function LightspireAI() {
                     </div>
                  </div>
 
-                 {/* SKINGENIE CARD */}
+                 {/* SkinGenie Card */}
                  <div onClick={() => setPage('skingenie')} className="ai-card p-8 group cursor-pointer">
                     <div className="flex justify-between items-start mb-8">
                        <div className="p-3 bg-purple-500/10 rounded-xl text-purple-400 border border-purple-500/20 group-hover:scale-110 transition-transform duration-300">
@@ -276,88 +278,152 @@ export default function LightspireAI() {
            </div>
         )}
 
-        {/* --- DETAIL PAGES --- */}
-
-        {page !== 'home' && (
+        {/* --- MALLORN DETAIL PAGE (GALLERY STYLE) --- */}
+        {page === 'mallorn' && (
            <div className="animate-fade-in">
-              <button
-                 onClick={() => setPage('home')}
-                 className="mb-8 flex items-center gap-2 text-sm text-gray-400 hover:text-white transition-colors group"
-              >
+              <button onClick={() => setPage('home')} className="mb-8 flex items-center gap-2 text-sm text-gray-400 hover:text-white transition-colors group">
                  <ArrowLeft size={16} className="group-hover:-translate-x-1 transition-transform" /> BACK_TO_ROOT
               </button>
 
-              <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-                 {/* Text Content */}
-                 <div>
-                    <div className={`inline-block px-3 py-1 rounded mb-4 text-xs font-mono border ${page === 'mallorn' ? 'border-blue-500/30 text-blue-400 bg-blue-500/10' : 'border-purple-500/30 text-purple-400 bg-purple-500/10'}`}>
-                       MODULE: {page.toUpperCase()}
-                    </div>
-
-                    <h1 className="text-4xl md:text-5xl font-bold mb-6">
-                       {page === 'mallorn' ? 'Predictive Storage Defense' : 'Your Pocket Dermatologist'}
-                    </h1>
-
-                    <p className="text-lg text-gray-400 mb-8 leading-relaxed">
-                       {page === 'mallorn'
-                          ? "The Sentinel for your Storage. Trained on 300,000+ drives. Mallorn ignores manufacturer thresholds and uses a machine learning model to detect non-linear failure patterns."
-                          : "Stop guessing what your skin needs. SkinGenie uses advanced computer vision to scan your face in seconds and give you personalized recomendations."
-                       }
-                    </p>
-
-                    <div className="space-y-4 mb-8">
-                       {(page === 'mallorn'
-                          ? ['Random Forest AI Model', 'Hybrid Scanning (Smartctl + WinAPI)', 'Native System Tray Integration']
-                          : ['Computer Vision Analysis', 'Routine Tracking & Reminders', 'Routine Notifications']
-                       ).map((feat, i) => (
-                          <div key={i} className="flex items-center gap-3">
-                             <CheckCircle2 size={18} className={page === 'mallorn' ? 'text-blue-500' : 'text-purple-500'} />
-                             <span className="text-gray-300">{feat}</span>
-                          </div>
-                       ))}
-                    </div>
-
-                    <div className="flex gap-4">
-                       {/* DOWNLOAD ACTIONS */}
-                       <a
-                          href={page === 'mallorn' ? LINKS.mallornDownload : LINKS.skinGenieStore}
-                          className="btn-ai px-6 py-3 font-bold flex items-center gap-2 no-underline"
-                          target={page === 'mallorn' ? '_self' : '_blank'}
-                       >
-                          {page === 'mallorn' ? <Monitor size={18}/> : <Play size={18} fill="currentColor"/>}
-                          {page === 'mallorn' ? 'Download for Windows' : 'Get on Google Play'}
-                       </a>
-
-                       {page === 'mallorn' && (
-                         <a href={LINKS.mallornRepo} target="_blank" className="px-6 py-3 rounded-lg border border-white/10 hover:bg-white/5 transition-colors font-medium text-sm flex items-center gap-2 text-white no-underline">
-                            <Github size={18}/> View on GitHub
-                         </a>
-                       )}
-                    </div>
+              <div className="text-center mb-12">
+                 <div className="inline-block px-3 py-1 rounded mb-4 text-xs font-mono border border-blue-500/30 text-blue-400 bg-blue-500/10">
+                    MODULE: MALLORN
                  </div>
+                 <h1 className="text-4xl md:text-5xl font-bold mb-6">Predictive Storage Defense</h1>
+                 <p className="text-lg text-gray-400 max-w-2xl mx-auto">
+                    The Sentinel for your Storage. Trained on 300,000+ drives. Mallorn ignores manufacturer thresholds and uses a machine learning model to detect non-linear failure patterns.
+                 </p>
 
-                 {/* Visual Showcase (REAL IMAGES) */}
-                 <div className="relative group">
-                    <div className={`absolute -inset-4 rounded-[2rem] opacity-30 blur-2xl transition-all group-hover:opacity-50 ${page === 'mallorn' ? 'bg-blue-600' : 'bg-purple-600'}`}></div>
-
-                    <div className="relative bg-[#050505] rounded-[1rem] border border-white/10 p-2 shadow-2xl overflow-hidden">
-                       {/* DYNAMIC IMAGE LOADING */}
-                       <img
-                          src={page === 'mallorn' ? "assets/theme-mallorn.png" : "assets/skin-hero.png"}
-                          alt="App Screenshot"
-                          className="w-full h-auto rounded-lg"
-                       />
-                    </div>
+                 <div className="flex gap-4 justify-center mt-8">
+                    <a href={LINKS.mallornDownload} className="btn-ai px-6 py-3 font-bold flex items-center gap-2 no-underline">
+                        <Monitor size={18}/> Download for Windows
+                    </a>
+                    <a href={LINKS.mallornRepo} target="_blank" className="px-6 py-3 rounded-lg border border-white/10 hover:bg-white/5 transition-colors font-medium text-sm flex items-center gap-2 text-white no-underline">
+                        <Github size={18}/> View on GitHub
+                    </a>
                  </div>
               </div>
 
-              {/* DONATION BANNER */}
-              <div className="mt-12 p-6 rounded-2xl bg-white/5 border border-white/10 text-center max-w-xl mx-auto">
-                 <h3 className="text-lg font-bold mb-2">Support Indie Development</h3>
-                 <p className="text-gray-400 text-sm mb-4">
-                    Both apps are free to use. If they help you, consider supporting future updates.
+              {/* GALLERY SECTION */}
+              <div className="bg-[#050505] rounded-[1rem] border border-white/10 p-2 shadow-2xl overflow-hidden mb-8">
+                 <img src={mallornHero} alt="Mallorn UI" className="w-full h-auto rounded-lg" />
+              </div>
+
+              <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-16">
+                 {[
+                    { img: "assets/theme-mallorn.png", name: "DEFAULT", color: "text-blue-400" },
+                    { img: "assets/theme-valinor.png", name: "VALINOR", color: "text-white" },
+                    { img: "assets/theme-isengard.png", name: "ISENGARD", color: "text-red-500" },
+                    { img: "assets/theme-lothlorien.png", name: "LOTHLÓRIEN", color: "text-emerald-400" }
+                 ].map((theme, i) => (
+                    <div key={i} onClick={() => setMallornHero(theme.img)} className="cursor-pointer group text-center">
+                       <div className={`rounded-lg border border-white/10 overflow-hidden mb-2 transition-all ${mallornHero === theme.img ? 'ring-2 ring-blue-500' : 'opacity-70 group-hover:opacity-100'}`}>
+                          <img src={theme.img} alt={theme.name} />
+                       </div>
+                       <span className={`text-[10px] font-mono font-bold ${theme.color}`}>{theme.name}</span>
+                    </div>
+                 ))}
+              </div>
+
+              {/* DONATION BANNER (GREEN) */}
+              <div className="p-8 rounded-2xl bg-emerald-900/10 border border-emerald-500/20 text-center max-w-xl mx-auto">
+                 <h3 className="text-lg font-bold mb-2 text-emerald-400">Mallorn is Free & Open Source</h3>
+                 <p className="text-emerald-200/60 text-sm mb-6">
+                    I built this to save data. If it saved yours, consider buying me a coffee.
                  </p>
-                 <a href={LINKS.kofi} target="_blank" className="inline-flex items-center gap-2 text-green-400 hover:text-green-300 font-bold transition-colors">
+                 <a href={LINKS.kofi} target="_blank" className="inline-flex items-center gap-2 bg-emerald-500 hover:bg-emerald-600 text-white px-6 py-3 rounded-lg font-bold transition-all shadow-lg hover:shadow-emerald-500/20 no-underline">
+                    <Coffee size={18} /> Buy me a Coffee
+                 </a>
+              </div>
+           </div>
+        )}
+
+        {/* --- SKINGENIE DETAIL PAGE (ZIG ZAG) --- */}
+        {page === 'skingenie' && (
+           <div className="animate-fade-in">
+              <button onClick={() => setPage('home')} className="mb-8 flex items-center gap-2 text-sm text-gray-400 hover:text-white transition-colors group">
+                 <ArrowLeft size={16} className="group-hover:-translate-x-1 transition-transform" /> BACK_TO_ROOT
+              </button>
+
+              <div className="text-center mb-16">
+                 <div className="inline-block px-3 py-1 rounded mb-4 text-xs font-mono border border-purple-500/30 text-purple-400 bg-purple-500/10">
+                    MODULE: SKINGENIE
+                 </div>
+                 <h1 className="text-4xl md:text-5xl font-bold mb-6">Your Pocket Dermatologist</h1>
+                 <p className="text-lg text-gray-400 max-w-2xl mx-auto mb-8">
+                    Stop guessing what your skin needs. SkinGenie uses advanced computer vision to scan your face in seconds and build personalized routines.
+                 </p>
+                 <a href={LINKS.skinGenieStore} target="_blank" className="btn-ai px-6 py-3 font-bold inline-flex items-center gap-2 no-underline">
+                    <Play size={18} fill="currentColor"/> Get on Google Play
+                 </a>
+              </div>
+
+              {/* SECTION 1: SCAN */}
+              <div className="flex flex-col md:flex-row items-center gap-12 mb-24">
+                 <div className="flex-1 relative">
+                    <div className="absolute -inset-4 bg-purple-600/20 blur-2xl rounded-full"></div>
+                    <img src="assets/skin-hero.png" alt="Scan" className="relative rounded-xl border border-white/10 shadow-2xl w-full" />
+                 </div>
+                 <div className="flex-1">
+                    <h2 className="text-2xl font-bold mb-4 text-purple-400">Discover Your Skin's Story</h2>
+                    <p className="text-gray-400 leading-relaxed mb-6">
+                       SkinGenie uses advanced computer vision to scan your face in seconds. It maps hydration, oiliness, and texture without sending photos to the cloud.
+                    </p>
+                    <ul className="space-y-3">
+                       {['Instant Camera Scan', 'Privacy-First Processing', 'Works on all skin tones'].map((item, i) => (
+                          <li key={i} className="flex items-center gap-3 text-gray-300">
+                             <CheckCircle2 size={16} className="text-purple-500" /> {item}
+                          </li>
+                       ))}
+                    </ul>
+                 </div>
+              </div>
+
+              {/* SECTION 2: RESULTS (REVERSE) */}
+              <div className="flex flex-col md:flex-row-reverse items-center gap-12 mb-24">
+                 <div className="flex-1 relative">
+                    <div className="absolute -inset-4 bg-blue-600/20 blur-2xl rounded-full"></div>
+                    <img src="assets/skin-results.png" alt="Results" className="relative rounded-xl border border-white/10 shadow-2xl w-full" />
+                 </div>
+                 <div className="flex-1">
+                    <h2 className="text-2xl font-bold mb-4 text-blue-400">Clinical-Grade Analysis</h2>
+                    <p className="text-gray-400 leading-relaxed mb-6">
+                       Our AI breaks down your skin health into understandable metrics. Identify issues before they become visible problems.
+                    </p>
+                    <ul className="space-y-3">
+                       <li className="flex items-start gap-3 text-gray-300">
+                          <Activity size={16} className="text-blue-500 mt-1" />
+                          <span><strong className="text-white">80+ Analysis Points:</strong> From hydration levels to texture.</span>
+                       </li>
+                       <li className="flex items-start gap-3 text-gray-300">
+                          <ShieldCheck size={16} className="text-blue-500 mt-1" />
+                          <span><strong className="text-white">Actionable Insights:</strong> We explain <em>why</em> it matters.</span>
+                       </li>
+                    </ul>
+                 </div>
+              </div>
+
+              {/* SECTION 3: ROUTINE */}
+              <div className="flex flex-col md:flex-row items-center gap-12 mb-24">
+                 <div className="flex-1 relative">
+                    <div className="absolute -inset-4 bg-emerald-600/20 blur-2xl rounded-full"></div>
+                    <img src="assets/skin-routine.png" alt="Routine" className="relative rounded-xl border border-white/10 shadow-2xl w-full" />
+                 </div>
+                 <div className="flex-1">
+                    <h2 className="text-2xl font-bold mb-4 text-emerald-400">Build Your Routine</h2>
+                    <p className="text-gray-400 leading-relaxed">
+                       Consistency is key to glowing skin. Organize your products into AM and PM routines and get smart reminders so you never miss a step.
+                    </p>
+                 </div>
+              </div>
+
+              {/* DONATION BANNER (GREEN) */}
+              <div className="p-8 rounded-2xl bg-emerald-900/10 border border-emerald-500/20 text-center max-w-xl mx-auto">
+                 <h3 className="text-lg font-bold mb-2 text-emerald-400">Support Indie Development</h3>
+                 <p className="text-emerald-200/60 text-sm mb-6">
+                    SkinGenie is free to use. If it helps your skincare journey, consider supporting future updates.
+                 </p>
+                 <a href={LINKS.kofi} target="_blank" className="inline-flex items-center gap-2 bg-emerald-500 hover:bg-emerald-600 text-white px-6 py-3 rounded-lg font-bold transition-all shadow-lg hover:shadow-emerald-500/20 no-underline">
                     <Coffee size={18} /> Buy me a Coffee
                  </a>
               </div>
