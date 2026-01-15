@@ -438,32 +438,36 @@ export default function LightspireAI() {
                  </a>
               </div>
 
-              {/* SECTION 1: THE SCANNER (ZOOM ON HOVER) */}
-              <div className="relative h-[400px] w-full flex justify-center items-center mb-32">
-                 {/* Routine (Left/Back) */}
-                 <img
-                    src="assets/skin-routine.png"
-                    alt="Routine"
-                    className="absolute left-[10%] md:left-[25%] top-10 w-48 rounded-[2rem] border-4 border-[#1a1a20] shadow-2xl -rotate-12 opacity-60 scale-90 z-10 transition-all duration-500 ease-out cursor-default hover:scale-125 hover:opacity-100 hover:z-50 hover:rotate-0"
-                 />
+              {/* SECTION 1: SPLIT LAYOUT (Images Left, Text Right) */}
+              <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center mb-32">
 
-                 {/* Results (Right/Back) */}
-                 <img
-                    src="assets/skin-results.png"
-                    alt="Results"
-                    className="absolute right-[10%] md:right-[25%] top-10 w-48 rounded-[2rem] border-4 border-[#1a1a20] shadow-2xl rotate-12 opacity-60 scale-90 z-10 transition-all duration-500 ease-out cursor-default hover:scale-125 hover:opacity-100 hover:z-50 hover:rotate-0"
-                 />
+                 {/* LEFT: Phone Cluster */}
+                 <div className="relative h-[400px] w-full flex justify-center items-center">
+                    {/* Routine (Left/Back) */}
+                    <img
+                       src="assets/skin-routine.png"
+                       alt="Routine"
+                       className="absolute left-0 lg:left-4 top-10 w-40 rounded-[2rem] border-4 border-[#1a1a20] shadow-2xl -rotate-12 opacity-60 z-0 transform scale-90 transition-all duration-500 ease-out hover:scale-110 hover:z-50 hover:opacity-100 hover:rotate-0"
+                    />
 
-                 {/* Hero Scan (Center/Front) */}
-                 <div
-                    className="relative z-20 w-56 rounded-[2.5rem] border-[8px] border-[#1a1a20] overflow-hidden shadow-2xl bg-black transition-all duration-500 ease-out hover:scale-125 hover:z-50"
-                 >
-                     <div className="scan-line"></div>
-                     <div className="scan-overlay"></div>
-                     <img src="assets/skin-hero.png" alt="Scan" className="w-full h-auto opacity-90" />
+                    {/* Results (Right/Back) */}
+                    <img
+                       src="assets/skin-results.png"
+                       alt="Results"
+                       className="absolute right-0 lg:right-4 top-10 w-40 rounded-[2rem] border-4 border-[#1a1a20] shadow-2xl rotate-12 opacity-60 z-0 transform scale-90 transition-all duration-500 ease-out hover:scale-110 hover:z-50 hover:opacity-100 hover:rotate-0"
+                    />
+
+                    {/* Hero Scan (Center/Front) */}
+                    <div
+                       className="relative z-10 w-48 rounded-[2.5rem] border-[8px] border-[#1a1a20] overflow-hidden shadow-2xl bg-black transform hover:scale-110 transition-transform duration-300"
+                    >
+                        <div className="scan-line"></div>
+                        <div className="scan-overlay"></div>
+                        <img src="assets/skin-hero.png" alt="Scan" className="w-full h-auto opacity-90" />
+                    </div>
                  </div>
-              </div>
 
+                 {/* RIGHT: Text Content */}
                  <div>
                     <div className="w-12 h-12 rounded-lg bg-purple-500/20 flex items-center justify-center text-purple-400 mb-6">
                         <Camera size={24} />
@@ -489,9 +493,11 @@ export default function LightspireAI() {
                        ))}
                     </div>
                  </div>
+              </div>
+
 
               {/* SECTION 2: ANALYSIS GRID */}
-              <div className="mb-32">
+              <div className="mt-32 mb-32">
                   <div className="text-center mb-12">
                       <h2 className="text-3xl font-bold mb-4">Total Control</h2>
                       <p className="text-gray-400">Manage every aspect of your skincare journey.</p>
@@ -559,7 +565,7 @@ export default function LightspireAI() {
               </div>
            </div>
         )}
-        
+
 
 
       </main>
