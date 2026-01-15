@@ -295,9 +295,8 @@ export default function LightspireAI() {
               {/* HEADER NAV */}
               <div className="flex items-center justify-between mb-12 border-b border-white/5 pb-4">
                 <button onClick={() => setPage('home')} className="flex items-center gap-2 text-sm text-gray-400 hover:text-white transition-colors group">
-                   <ArrowLeft size={16} className="group-hover:-translate-x-1 transition-transform" /> BACK_TO_ROOT
+                   <ArrowLeft size={16} className="group-hover:-translate-x-1 transition-transform" /> BACK
                 </button>
-                <div className="font-mono text-xs text-blue-500/60">SYS_ID: MALLORN_v2.1</div>
               </div>
 
               {/* HERO SECTION */}
@@ -417,14 +416,13 @@ export default function LightspireAI() {
            </div>
         )}
 
-        {/* --- SKINGENIE DETAIL PAGE (UPDATED - REAL DATA) --- */}
+        {/* --- SKINGENIE DETAIL PAGE (UPDATED) --- */}
         {page === 'skingenie' && (
            <div className="animate-fade-in">
               <div className="flex items-center justify-between mb-12 border-b border-white/5 pb-4">
                 <button onClick={() => setPage('home')} className="flex items-center gap-2 text-sm text-gray-400 hover:text-white transition-colors group">
-                   <ArrowLeft size={16} className="group-hover:-translate-x-1 transition-transform" /> BACK_TO_ROOT
+                   <ArrowLeft size={16} className="group-hover:-translate-x-1 transition-transform" /> BACK
                 </button>
-                <div className="font-mono text-xs text-purple-500/60">SYS_ID: SKINGENIE_AI</div>
               </div>
 
               <div className="text-center mb-20">
@@ -442,22 +440,14 @@ export default function LightspireAI() {
                  </a>
               </div>
 
-              {/* SECTION 1: THE SCANNER (VISUAL UPGRADE) */}
+              {/* SECTION 1: THE SCANNER */}
               <div className="grid grid-cols-1 md:grid-cols-2 gap-16 items-center mb-32">
                  <div className="relative mx-auto w-full max-w-[300px]">
-                    {/* Phone Frame */}
                     <div className="absolute -inset-4 bg-gradient-to-b from-purple-500/30 to-blue-500/5 blur-2xl rounded-full opacity-50"></div>
                     <div className="relative rounded-[2.5rem] border-[8px] border-[#1a1a20] overflow-hidden shadow-2xl bg-black">
-                        {/* Scanner Effects */}
                         <div className="scan-line"></div>
                         <div className="scan-overlay"></div>
-
                         <img src="assets/skin-hero.png" alt="Scan" className="w-full h-auto opacity-90" />
-
-                        {/* UI Overlay */}
-                        <div className="absolute top-6 left-1/2 -translate-x-1/2 bg-black/50 backdrop-blur px-4 py-1 rounded-full border border-white/10 text-[10px] text-white font-mono whitespace-nowrap">
-                            ANALYZING_CONCERNS...
-                        </div>
                     </div>
                  </div>
 
@@ -496,7 +486,6 @@ export default function LightspireAI() {
                   </div>
 
                   <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-                      {/* Card 1 */}
                       <div className="bg-[#0f0f12] p-6 rounded-2xl border border-white/5 hover:border-blue-500/30 transition-all group">
                           <div className="mb-4 flex justify-between items-start">
                               <RefreshCw className="text-blue-500 group-hover:scale-110 transition-transform"/>
@@ -505,7 +494,6 @@ export default function LightspireAI() {
                           <h3 className="text-xl font-bold mb-2">Smart Swapping</h3>
                           <p className="text-sm text-gray-400 mb-4">Not satisfied with a recommendation? Fine-tune AI results by finding alternatives that match your budget.</p>
                       </div>
-                       {/* Card 2 */}
                        <div className="bg-[#0f0f12] p-6 rounded-2xl border border-white/5 hover:border-pink-500/30 transition-all group">
                           <div className="mb-4 flex justify-between items-start">
                               <Zap className="text-pink-500 group-hover:scale-110 transition-transform"/>
@@ -514,7 +502,6 @@ export default function LightspireAI() {
                           <h3 className="text-xl font-bold mb-2">AM / PM Routines</h3>
                           <p className="text-sm text-gray-400 mb-4">Create separate morning and evening regimens. Set one as 'Active' to track what you're currently using.</p>
                       </div>
-                       {/* Card 3 */}
                        <div className="bg-[#0f0f12] p-6 rounded-2xl border border-white/5 hover:border-emerald-500/30 transition-all group">
                           <div className="mb-4 flex justify-between items-start">
                               <ShieldCheck className="text-emerald-500 group-hover:scale-110 transition-transform"/>
@@ -526,8 +513,8 @@ export default function LightspireAI() {
                   </div>
               </div>
 
-              {/* SECTION 3: ROUTINE (Dark Card Layout) */}
-              <div className="rounded-3xl bg-[#0a0a0c] border border-white/10 p-8 md:p-12 flex flex-col md:flex-row items-center gap-12 relative overflow-hidden">
+              {/* SECTION 3: ROUTINE */}
+              <div className="rounded-3xl bg-[#0a0a0c] border border-white/10 p-8 md:p-12 flex flex-col md:flex-row items-center gap-12 relative overflow-hidden mt-32">
                  <div className="absolute top-0 right-0 w-1/2 h-full bg-gradient-to-l from-emerald-900/10 to-transparent pointer-events-none"></div>
 
                  <div className="flex-1 z-10">
@@ -535,22 +522,22 @@ export default function LightspireAI() {
                     <p className="text-gray-400 mb-8 leading-relaxed">
                        Need a PDF to prove how amazing your skincare routine is? Boom. Export your full regimen with product details, prices, and instructions in one tap.
                     </p>
-                    <button className="flex items-center gap-2 text-emerald-400 font-bold text-sm uppercase tracking-wide hover:text-emerald-300 transition-colors">
-                        Explore Dashboard <ArrowRight size={16}/>
-                    </button>
+                    <a href={LINKS.skinGenieStore} target="_blank" className="flex items-center gap-2 text-emerald-400 font-bold text-sm uppercase tracking-wide hover:text-emerald-300 transition-colors no-underline">
+                        Check it on Google Play <ArrowRight size={16}/>
+                    </a>
                  </div>
                  <div className="flex-1 relative z-10">
                      <img src="assets/skin-routine.png" alt="Routine" className="rounded-lg shadow-2xl border border-white/10 transform rotate-1 hover:rotate-0 transition-transform duration-500" />
                  </div>
               </div>
 
-              {/* DONATION BANNER (GREEN) */}
-              <div className="p-8 rounded-2xl bg-emerald-900/10 border border-emerald-500/20 text-center max-w-xl mx-auto">
+              {/* SKINGENIE DONATION */}
+              <div className="mt-32 p-8 rounded-2xl bg-emerald-900/10 border border-emerald-500/20 text-center max-w-xl mx-auto">
                  <h3 className="text-lg font-bold mb-2 text-emerald-400">Support Indie Development</h3>
                  <p className="text-emerald-200/60 text-sm mb-6">
                     SkinGenie is free to use. If it helps your skincare journey, consider supporting future updates.
                  </p>
-                 <a href={LINKS.kofi} target="_blank" className="inline-flex items-center gap-2 bg-purple-500 hover:bg-purple-600 text-white px-6 py-3 rounded-lg font-bold transition-all shadow-lg hover:shadow-emerald-500/20 no-underline">
+                 <a href={LINKS.kofi} target="_blank" className="inline-flex items-center gap-2 bg-emerald-500 hover:bg-emerald-600 text-white px-6 py-3 rounded-lg font-bold transition-all shadow-lg hover:shadow-emerald-500/20 no-underline">
                     <Coffee size={18} /> Buy me a Coffee
                  </a>
               </div>
