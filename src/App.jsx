@@ -491,7 +491,6 @@ export default function LightspireAI() {
                        ))}
                     </div>
                  </div>
-              </div>
 
               {/* SECTION 2: ANALYSIS GRID */}
               <div className="mb-32">
