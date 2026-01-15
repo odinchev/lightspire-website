@@ -437,11 +437,19 @@ export default function LightspireAI() {
                  </a>
               </div>
 
-              {/* SECTION 1: THE SCANNER */}
+              {/* SECTION 1: THE SCANNER (GALLERY UPGRADE) */}
               <div className="grid grid-cols-1 md:grid-cols-2 gap-16 items-center mb-32">
-                 <div className="relative mx-auto w-full max-w-[300px]">
-                    <div className="absolute -inset-4 bg-gradient-to-b from-purple-500/30 to-blue-500/5 blur-2xl rounded-full opacity-50"></div>
-                    <div className="relative rounded-[2.5rem] border-[8px] border-[#1a1a20] overflow-hidden shadow-2xl bg-black">
+                 {/* The 3-Image Cluster */}
+                 <div className="relative h-[400px] w-full flex justify-center items-center">
+                    {/* Routine (Left/Back) */}
+                    <img src="assets/skin-routine.png" alt="Routine" className="absolute left-0 top-10 w-48 rounded-[2rem] border-4 border-[#1a1a20] shadow-2xl -rotate-12 opacity-60 z-0 transform scale-90" />
+
+                    {/* Results (Right/Back) */}
+                    <img src="assets/skin-results.png" alt="Results" className="absolute right-0 top-10 w-48 rounded-[2rem] border-4 border-[#1a1a20] shadow-2xl rotate-12 opacity-60 z-0 transform scale-90" />
+
+                    {/* Hero Scan (Center/Front) */}
+                    <div className="relative z-10 w-56 rounded-[2.5rem] border-[8px] border-[#1a1a20] overflow-hidden shadow-2xl bg-black transform hover:scale-105 transition-transform duration-500">
+                        {/* Scanner Effects */}
                         <div className="scan-line"></div>
                         <div className="scan-overlay"></div>
                         <img src="assets/skin-hero.png" alt="Scan" className="w-full h-auto opacity-90" />
