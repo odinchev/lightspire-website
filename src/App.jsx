@@ -302,9 +302,6 @@ export default function LightspireAI() {
               {/* HERO SECTION */}
               <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center mb-16">
                  <div>
-                    <div className="inline-flex items-center gap-2 text-blue-400 mb-4 font-mono text-sm">
-                        <Terminal size={14} /> ./init_heartwood_protocol.sh
-                    </div>
                     <h1 className="text-5xl font-extrabold mb-6 tracking-tight">
                        Watcher of the <span className="text-blue-500">Heartwood</span>
                     </h1>
