@@ -99,10 +99,11 @@ body {
 .btn-ai:hover { box-shadow: 0 0 20px rgba(139, 92, 246, 0.4); }
 
 .btn-recon {
-  background: linear-gradient(90deg, #059669, #22c55e) !important;
+  background: linear-gradient(90deg, #00CC00, #00FF00) !important;
+  color: #000 !important;
 }
 .btn-recon:hover {
-  box-shadow: 0 0 20px rgba(34, 197, 94, 0.4) !important;
+  box-shadow: 0 0 20px rgba(0, 255, 0, 0.6) !important;
 }
 
 @keyframes scan {
@@ -264,22 +265,22 @@ export default function LightspireAI() {
 
               <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
                  {/* GuestRecon Card */}
-                 <div onClick={() => setPage('guestrecon')} className="ai-card p-8 group cursor-pointer border-green-500/20 hover:border-green-500/40">
+                 <div onClick={() => setPage('guestrecon')} className="ai-card p-8 group cursor-pointer border-[#00FF00]/20 hover:border-[#00FF00]/40">
                     <div className="flex justify-between items-start mb-8">
-                       <div className="p-3 bg-green-500/10 rounded-xl text-green-400 border border-green-500/20 group-hover:scale-110 transition-transform duration-300">
+                       <div className="p-3 bg-[#00FF00]/10 rounded-xl text-[#00FF00] border border-[#00FF00]/20 group-hover:scale-110 transition-transform duration-300">
                           <Activity size={32} />
                        </div>
-                       <div className="px-2 py-1 rounded bg-green-500/10 border border-green-500/20 text-[10px] font-mono text-green-300">
+                       <div className="px-2 py-1 rounded bg-[#00FF00]/10 border border-[#00FF00]/20 text-[10px] font-mono text-[#00FF00]">
                           WEB • AUDIO AI
                        </div>
                     </div>
-                    <h3 className="text-2xl font-bold mb-2 text-white group-hover:text-green-300 transition-colors">GuestRecon</h3>
+                    <h3 className="text-2xl font-bold mb-2 text-white group-hover:text-[#00FF00] transition-colors">GuestRecon</h3>
                     <p className="text-gray-400 text-sm leading-relaxed mb-6">
                        Autonomous podcast guest discovery.
                        Deep audio intel and producer-ready briefs.
                     </p>
                     <div className="flex items-center gap-2 text-xs font-mono text-gray-500 group-hover:text-white transition-colors">
-                       <span className="text-green-500">&gt;&gt;&gt;</span> VIEW_MODULE
+                       <span className="text-[#00FF00]">&gt;&gt;&gt;</span> VIEW_MODULE
                     </div>
                  </div>
 
@@ -338,11 +339,11 @@ export default function LightspireAI() {
 
               {/* HERO SECTION */}
               <div className="text-center max-w-4xl mx-auto mb-20">
-                 <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-green-500/10 border border-green-500/20 text-green-400 text-xs font-mono mb-6">
+                 <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#00FF00]/10 border border-[#00FF00]/20 text-[#00FF00] text-xs font-mono mb-6">
                     <Zap size={14} /> SYSTEM_OPERATIONAL: DEEP_AUDIO_INTEL
                  </div>
                  <h1 className="text-5xl md:text-7xl font-extrabold mb-8 tracking-tight bg-gradient-to-b from-white to-gray-400 bg-clip-text text-transparent">
-                    The Researcher That <span className="text-green-500">Listens</span> To Every Episode For You.
+                    The Researcher That <span className="text-[#00FF00]">Listens</span> To Every Episode For You.
                  </h1>
                  <p className="text-xl text-gray-400 mb-10 leading-relaxed max-w-2xl mx-auto">
                     From finding the perfect guest to generating the final interview brief.
@@ -358,12 +359,12 @@ export default function LightspireAI() {
               {/* FEATURES GRID */}
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 mb-32">
                  {[
-                    { title: "AUTONOMOUS DISCOVERY", icon: ScanFace, desc: "Our always-on recon system scans thousands of audio streams to detect guests who are actively appearing on similar podcasts.", color: "text-green-400", bg: "bg-green-500/5" },
-                    { title: "DEEP AUDIO INTEL", icon: Brain, desc: "We don't just skim transcripts. We listen to the audio to extract the exact vibe, tone, and specific stories that generic AI misses.", color: "text-emerald-400", bg: "bg-emerald-500/5" },
-                    { title: "MISSION BRIEF", icon: Terminal, desc: "Get a full producer-ready brief in seconds. Everything you need to lead a world-class conversation without spending 10 hours on research.", color: "text-green-500", bg: "bg-green-600/5" },
-                    { title: "COLD DM ARCHITECT", icon: Zap, desc: "We generate the exact hooks and context you need to break through the noise of any high-profile guest inbox.", color: "text-emerald-500", bg: "bg-emerald-600/5" }
+                    { title: "AUTONOMOUS DISCOVERY", icon: ScanFace, desc: "Our always-on recon system scans thousands of audio streams to detect guests who are actively appearing on similar podcasts.", color: "text-[#00FF00]", bg: "bg-[#00FF00]/5" },
+                    { title: "DEEP AUDIO INTEL", icon: Brain, desc: "We don't just skim transcripts. We listen to the audio to extract the exact vibe, tone, and specific stories that generic AI misses.", color: "text-[#00FF00]", bg: "bg-[#00FF00]/5" },
+                    { title: "MISSION BRIEF", icon: Terminal, desc: "Get a full producer-ready brief in seconds. Everything you need to lead a world-class conversation without spending 10 hours on research.", color: "text-[#00FF00]", bg: "bg-[#00FF00]/5" },
+                    { title: "COLD DM ARCHITECT", icon: Zap, desc: "We generate the exact hooks and context you need to break through the noise of any high-profile guest inbox.", color: "text-[#00FF00]", bg: "bg-[#00FF00]/5" }
                  ].map((feature, i) => (
-                    <div key={i} className={`p-6 rounded-2xl border border-white/5 ${feature.bg} hover:border-green-500/30 transition-all group`}>
+                    <div key={i} className={`p-6 rounded-2xl border border-white/5 ${feature.bg} hover:border-[#00FF00]/30 transition-all group`}>
                        <feature.icon className={`mb-4 ${feature.color} group-hover:scale-110 transition-transform`} size={28} />
                        <h3 className="font-bold text-sm mb-2 tracking-wider font-mono text-white">{feature.title}</h3>
                        <p className="text-gray-500 text-xs leading-relaxed">{feature.desc}</p>
@@ -376,7 +377,7 @@ export default function LightspireAI() {
                  <div className="space-y-8">
                     <div>
                        <h2 className="text-3xl font-bold mb-4 flex items-center gap-3">
-                          <Activity className="text-green-500" /> Strike Analysis
+                          <Activity className="text-[#00FF00]" /> Strike Analysis
                        </h2>
                        <p className="text-gray-400 leading-relaxed">
                           Our AI extracts unnormalized vectors of conversational sentiment. We identify the "stories they always tell" so you can either avoid them or ask for the unheard sequel.
@@ -385,55 +386,55 @@ export default function LightspireAI() {
 
                     <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                        <div className="p-4 rounded-xl bg-white/5 border border-white/5">
-                          <div className="text-xs font-mono text-green-500 mb-2">SCAN_MODE</div>
+                          <div className="text-xs font-mono text-[#00FF00] mb-2">SCAN_MODE</div>
                           <div className="text-sm font-bold text-gray-200">Vibe Extraction</div>
                        </div>
                        <div className="p-4 rounded-xl bg-white/5 border border-white/5">
-                          <div className="text-xs font-mono text-green-500 mb-2">INTEL_TYPE</div>
+                          <div className="text-xs font-mono text-[#00FF00] mb-2">INTEL_TYPE</div>
                           <div className="text-sm font-bold text-gray-200">Targeted DM Hooks</div>
                        </div>
                     </div>
                  </div>
 
                  <div className="relative">
-                    <div className="absolute inset-0 bg-green-500/10 blur-3xl rounded-full"></div>
-                    <div className="relative bg-[#0a0a0c] border border-green-500/20 rounded-2xl p-6 font-mono text-[10px] sm:text-xs overflow-hidden h-[300px] shadow-2xl">
-                       <div className="flex justify-between items-center mb-4 border-b border-green-500/20 pb-2">
-                          <span className="text-green-500">SYSTEM::AUDIO_DECONSTRUCTION</span>
-                          <span className="text-green-800">V4.2.0</span>
+                    <div className="absolute inset-0 bg-[#00FF00]/10 blur-3xl rounded-full"></div>
+                    <div className="relative bg-[#0a0a0c] border border-[#00FF00]/20 rounded-2xl p-6 font-mono text-[10px] sm:text-xs overflow-hidden h-[300px] shadow-2xl">
+                       <div className="flex justify-between items-center mb-4 border-b border-[#00FF00]/20 pb-2">
+                          <span className="text-[#00FF00]">SYSTEM::AUDIO_DECONSTRUCTION</span>
+                          <span className="text-[#00FF00]/50">V4.2.0</span>
                        </div>
                        <div className="space-y-2">
-                          <div className="flex gap-2 text-green-400">
+                          <div className="flex gap-2 text-[#00FF00]">
                              <span className="opacity-50">[00:12:45]</span>
                              <span>DETECTED_PATTERN: Personal Narrative / Childhood Reflection</span>
                           </div>
                           <div className="text-gray-500 ml-4">
                              "Mira recounts her childhood in a Palestinian village... stark double standard..."
                           </div>
-                          <div className="flex gap-2 text-emerald-400">
+                          <div className="flex gap-2 text-[#00FF00]">
                              <span className="opacity-50">[00:24:10]</span>
                              <span>HOOK_IDENTIFIED: The Pandemic Pivot</span>
                           </div>
                           <div className="text-gray-500 ml-4">
                              "Mira describes her initial reaction to the COVID-19 lockdown as an unexpected 'vacation'..."
                           </div>
-                          <div className="flex gap-2 text-green-500">
+                          <div className="flex gap-2 text-[#00FF00]">
                              <span className="opacity-50">[00:45:30]</span>
                              <span>GENERATE_DM_SCRIPT: Success</span>
                           </div>
-                          <div className="mt-4 p-2 bg-green-500/5 border border-green-500/10 rounded">
-                             <span className="text-green-300">"Hey Mira, Heard you on The Millie Podcast sharing your powerful story..."</span>
+                          <div className="mt-4 p-2 bg-[#00FF00]/5 border border-[#00FF00]/10 rounded">
+                             <span className="text-[#00FF00]">"Hey Mira, Heard you on The Millie Podcast sharing your powerful story..."</span>
                           </div>
                        </div>
                        {/* Animated Scanning Line */}
-                       <div className="absolute left-0 right-0 h-0.5 bg-green-500/20 animate-scan pointer-events-none"></div>
+                       <div className="absolute left-0 right-0 h-0.5 bg-[#00FF00]/20 animate-scan pointer-events-none"></div>
                     </div>
                  </div>
               </div>
 
               {/* TACTICAL BRIEF SECTION */}
               <div className="rounded-3xl bg-[#0a0a0c] border border-white/10 p-8 md:p-12 relative overflow-hidden mb-32">
-                 <div className="absolute top-0 right-0 w-64 h-64 bg-green-500/5 blur-[100px] pointer-events-none"></div>
+                 <div className="absolute top-0 right-0 w-64 h-64 bg-[#00FF00]/5 blur-[100px] pointer-events-none"></div>
                  <div className="max-w-2xl">
                     <h2 className="text-3xl font-bold mb-6 text-white">Go In Armed</h2>
                     <p className="text-gray-400 mb-8 leading-relaxed">
@@ -441,37 +442,37 @@ export default function LightspireAI() {
                     </p>
                     <div className="space-y-4 mb-10">
                        <div className="flex items-start gap-3">
-                          <CheckCircle2 size={18} className="text-green-500 mt-1" />
+                          <CheckCircle2 size={18} className="text-[#00FF00] mt-1" />
                           <div>
                              <span className="font-bold text-gray-200">Psychological Hooks:</span>
                              <span className="text-gray-500 ml-2 text-sm">Understand the underlying motivations of your guest.</span>
                           </div>
                        </div>
                        <div className="flex items-start gap-3">
-                          <CheckCircle2 size={18} className="text-green-500 mt-1" />
+                          <CheckCircle2 size={18} className="text-[#00FF00] mt-1" />
                           <div>
                              <span className="font-bold text-gray-200">Curveball Questions:</span>
                              <span className="text-gray-500 ml-2 text-sm">Deeply researched questions that break the routine of normal interviews.</span>
                           </div>
                        </div>
                     </div>
-                    <a href={LINKS.guestRecon} target="_blank" rel="noreferrer" className="inline-flex items-center gap-2 text-green-400 font-bold text-sm uppercase tracking-widest hover:text-green-300 transition-colors no-underline">
+                    <a href={LINKS.guestRecon} target="_blank" rel="noreferrer" className="inline-flex items-center gap-2 text-[#00FF00] font-bold text-sm uppercase tracking-widest hover:text-[#00FF00] transition-colors no-underline">
                         Launch Guest Finder <ArrowRight size={16}/>
                     </a>
                  </div>
               </div>
 
               {/* DONATION BANNER (RECON THEMED) */}
-              <div className="relative overflow-hidden p-8 rounded-2xl bg-black border border-green-500/20 text-center max-w-2xl mx-auto group hover:border-green-500/40 transition-colors">
-                 <div className="absolute top-0 left-0 w-full h-[1px] bg-gradient-to-r from-transparent via-green-500 to-transparent"></div>
+              <div className="relative overflow-hidden p-8 rounded-2xl bg-black border border-[#00FF00]/20 text-center max-w-2xl mx-auto group hover:border-[#00FF00]/40 transition-colors">
+                 <div className="absolute top-0 left-0 w-full h-[1px] bg-gradient-to-r from-transparent via-[#00FF00] to-transparent"></div>
                  <h3 className="text-lg font-bold mb-2 text-white flex items-center justify-center gap-2">
-                     <Activity size={18} className="text-green-500"/> Support Global Intelligence
+                     <Activity size={18} className="text-[#00FF00]"/> Support GuestRecon
                  </h3>
                  <p className="text-gray-400 text-sm mb-6 font-mono">
-                    System requires maintenance. Fuel the machine.
+                    Help support the development and maintenance of GuestRecon.
                  </p>
-                 <a href={LINKS.kofi} target="_blank" rel="noreferrer" className="inline-flex items-center gap-2 bg-emerald-600 hover:bg-emerald-500 text-white px-6 py-2 rounded-full font-bold transition-all shadow-lg hover:shadow-green-500/20 no-underline text-sm uppercase tracking-tighter">
-                    <Coffee size={16} /> Buy me a Coffee
+                 <a href={LINKS.kofi} target="_blank" rel="noreferrer" className="inline-flex items-center gap-2 bg-[#00CC00] hover:bg-[#00FF00] text-black px-6 py-2 rounded-full font-bold transition-all shadow-lg hover:shadow-[#00FF00]/20 no-underline text-sm uppercase tracking-tighter">
+                    <Coffee size={16} /> Donate
                  </a>
               </div>
            </div>
@@ -595,157 +596,6 @@ export default function LightspireAI() {
                     I built this to save data. If it saved yours, consider buying me a coffee.
                  </p>
                  <a href={LINKS.kofi} target="_blank" rel="noreferrer" className="inline-flex items-center gap-2 bg-emerald-600 hover:bg-emerald-500 text-white px-6 py-2 rounded-full font-bold transition-all shadow-lg hover:shadow-emerald-500/20 no-underline text-sm">
-                    <Coffee size={16} /> Buy me a Coffee
-                 </a>
-              </div>
-           </div>
-        )}
-
-        {/* --- GUESTRECON DETAIL PAGE --- */}
-        {page === 'guestrecon' && (
-           <div className="animate-fade-in">
-              {/* HEADER NAV */}
-              <div className="flex items-center justify-between mb-12 border-b border-white/5 pb-4">
-                <button onClick={() => setPage('home')} className="flex items-center gap-2 text-sm text-gray-400 hover:text-white transition-colors group">
-                   <ArrowLeft size={16} className="group-hover:-translate-x-1 transition-transform" /> BACK
-                </button>
-              </div>
-
-              {/* HERO SECTION */}
-              <div className="text-center max-w-4xl mx-auto mb-20">
-                 <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-green-500/10 border border-green-500/20 text-green-400 text-xs font-mono mb-6">
-                    <Zap size={14} /> SYSTEM_OPERATIONAL: DEEP_AUDIO_INTEL
-                 </div>
-                 <h1 className="text-5xl md:text-7xl font-extrabold mb-8 tracking-tight bg-gradient-to-b from-white to-gray-400 bg-clip-text text-transparent">
-                    The Researcher That <span className="text-green-500">Listens</span> To Every Episode For You.
-                 </h1>
-                 <p className="text-xl text-gray-400 mb-10 leading-relaxed max-w-2xl mx-auto">
-                    From finding the perfect guest to generating the final interview brief.
-                    GuestRecon handles the research so you can focus on the conversation.
-                 </p>
-                 <div className="flex flex-wrap justify-center gap-4">
-                    <a href={LINKS.guestRecon} target="_blank" rel="noreferrer" className="btn-ai btn-recon px-8 py-4 font-bold flex items-center gap-2 no-underline rounded-full text-lg">
-                        Visit Website <ArrowRight size={20}/>
-                    </a>
-                 </div>
-              </div>
-
-              {/* FEATURES GRID */}
-              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 mb-32">
-                 {[
-                    { title: "AUTONOMOUS DISCOVERY", icon: ScanFace, desc: "Our always-on recon system scans thousands of audio streams to detect guests who are actively appearing on similar podcasts.", color: "text-green-400", bg: "bg-green-500/5" },
-                    { title: "DEEP AUDIO INTEL", icon: Brain, desc: "We don't just skim transcripts. We listen to the audio to extract the exact vibe, tone, and specific stories that generic AI misses.", color: "text-emerald-400", bg: "bg-emerald-500/5" },
-                    { title: "MISSION BRIEF", icon: Terminal, desc: "Get a full producer-ready brief in seconds. Everything you need to lead a world-class conversation without spending 10 hours on research.", color: "text-green-500", bg: "bg-green-600/5" },
-                    { title: "COLD DM ARCHITECT", icon: Zap, desc: "We generate the exact hooks and context you need to break through the noise of any high-profile guest inbox.", color: "text-emerald-500", bg: "bg-emerald-600/5" }
-                 ].map((feature, i) => (
-                    <div key={i} className={`p-6 rounded-2xl border border-white/5 ${feature.bg} hover:border-green-500/30 transition-all group`}>
-                       <feature.icon className={`mb-4 ${feature.color} group-hover:scale-110 transition-transform`} size={28} />
-                       <h3 className="font-bold text-sm mb-2 tracking-wider font-mono text-white">{feature.title}</h3>
-                       <p className="text-gray-500 text-xs leading-relaxed">{feature.desc}</p>
-                    </div>
-                 ))}
-              </div>
-
-              {/* TECH VISUALIZATION SECTION */}
-              <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center mb-32">
-                 <div className="space-y-8">
-                    <div>
-                       <h2 className="text-3xl font-bold mb-4 flex items-center gap-3">
-                          <Activity className="text-green-500" /> Strike Analysis
-                       </h2>
-                       <p className="text-gray-400 leading-relaxed">
-                          Our AI extracts unnormalized vectors of conversational sentiment. We identify the "stories they always tell" so you can either avoid them or ask for the unheard sequel.
-                       </p>
-                    </div>
-
-                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                       <div className="p-4 rounded-xl bg-white/5 border border-white/5">
-                          <div className="text-xs font-mono text-green-500 mb-2">SCAN_MODE</div>
-                          <div className="text-sm font-bold text-gray-200">Vibe Extraction</div>
-                       </div>
-                       <div className="p-4 rounded-xl bg-white/5 border border-white/5">
-                          <div className="text-xs font-mono text-green-500 mb-2">INTEL_TYPE</div>
-                          <div className="text-sm font-bold text-gray-200">Targeted DM Hooks</div>
-                       </div>
-                    </div>
-                 </div>
-
-                 <div className="relative">
-                    <div className="absolute inset-0 bg-green-500/10 blur-3xl rounded-full"></div>
-                    <div className="relative bg-[#0a0a0c] border border-green-500/20 rounded-2xl p-6 font-mono text-[10px] sm:text-xs overflow-hidden h-[300px] shadow-2xl">
-                       <div className="flex justify-between items-center mb-4 border-b border-green-500/20 pb-2">
-                          <span className="text-green-500">SYSTEM::AUDIO_DECONSTRUCTION</span>
-                          <span className="text-green-800">V4.2.0</span>
-                       </div>
-                       <div className="space-y-2">
-                          <div className="flex gap-2 text-green-400">
-                             <span className="opacity-50">[00:12:45]</span>
-                             <span>DETECTED_PATTERN: Personal Narrative / Childhood Reflection</span>
-                          </div>
-                          <div className="text-gray-500 ml-4">
-                             "Mira recounts her childhood in a Palestinian village... stark double standard..."
-                          </div>
-                          <div className="flex gap-2 text-emerald-400">
-                             <span className="opacity-50">[00:24:10]</span>
-                             <span>HOOK_IDENTIFIED: The Pandemic Pivot</span>
-                          </div>
-                          <div className="text-gray-500 ml-4">
-                             "Mira describes her initial reaction to the COVID-19 lockdown as an unexpected 'vacation'..."
-                          </div>
-                          <div className="flex gap-2 text-green-500">
-                             <span className="opacity-50">[00:45:30]</span>
-                             <span>GENERATE_DM_SCRIPT: Success</span>
-                          </div>
-                          <div className="mt-4 p-2 bg-green-500/5 border border-green-500/10 rounded">
-                             <span className="text-green-300">"Hey Mira, Heard you on The Millie Podcast sharing your powerful story..."</span>
-                          </div>
-                       </div>
-                       {/* Animated Scanning Line */}
-                       <div className="absolute left-0 right-0 h-0.5 bg-green-500/20 animate-scan pointer-events-none"></div>
-                    </div>
-                 </div>
-              </div>
-
-              {/* TACTICAL BRIEF SECTION */}
-              <div className="rounded-3xl bg-[#0a0a0c] border border-white/10 p-8 md:p-12 relative overflow-hidden mb-32">
-                 <div className="absolute top-0 right-0 w-64 h-64 bg-green-500/5 blur-[100px] pointer-events-none"></div>
-                 <div className="max-w-2xl">
-                    <h2 className="text-3xl font-bold mb-6 text-white">Go In Armed</h2>
-                    <p className="text-gray-400 mb-8 leading-relaxed">
-                       No 50-page summaries. Just the tactical intel a producer needs to lead a winning 60-minute session. We map your network in 3D and find guests that define your ecosystem.
-                    </p>
-                    <div className="space-y-4 mb-10">
-                       <div className="flex items-start gap-3">
-                          <CheckCircle2 size={18} className="text-green-500 mt-1" />
-                          <div>
-                             <span className="font-bold text-gray-200">Psychological Hooks:</span>
-                             <span className="text-gray-500 ml-2 text-sm">Understand the underlying motivations of your guest.</span>
-                          </div>
-                       </div>
-                       <div className="flex items-start gap-3">
-                          <CheckCircle2 size={18} className="text-green-500 mt-1" />
-                          <div>
-                             <span className="font-bold text-gray-200">Curveball Questions:</span>
-                             <span className="text-gray-500 ml-2 text-sm">Deeply researched questions that break the routine of normal interviews.</span>
-                          </div>
-                       </div>
-                    </div>
-                    <a href={LINKS.guestRecon} target="_blank" rel="noreferrer" className="inline-flex items-center gap-2 text-green-400 font-bold text-sm uppercase tracking-widest hover:text-green-300 transition-colors no-underline">
-                        Launch Guest Finder <ArrowRight size={16}/>
-                    </a>
-                 </div>
-              </div>
-
-              {/* DONATION BANNER (RECON THEMED) */}
-              <div className="relative overflow-hidden p-8 rounded-2xl bg-black border border-green-500/20 text-center max-w-2xl mx-auto group hover:border-green-500/40 transition-colors">
-                 <div className="absolute top-0 left-0 w-full h-[1px] bg-gradient-to-r from-transparent via-green-500 to-transparent"></div>
-                 <h3 className="text-lg font-bold mb-2 text-white flex items-center justify-center gap-2">
-                     <Activity size={18} className="text-green-500"/> Support Global Intelligence
-                 </h3>
-                 <p className="text-gray-400 text-sm mb-6 font-mono">
-                    System requires maintenance. Fuel the machine.
-                 </p>
-                 <a href={LINKS.kofi} target="_blank" rel="noreferrer" className="inline-flex items-center gap-2 bg-emerald-600 hover:bg-emerald-500 text-white px-6 py-2 rounded-full font-bold transition-all shadow-lg hover:shadow-emerald-500/20 no-underline text-sm uppercase tracking-tighter">
                     <Coffee size={16} /> Buy me a Coffee
                  </a>
               </div>
